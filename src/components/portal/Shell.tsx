@@ -55,7 +55,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
           <Logo />
         </div>
         <div className="border-b-[1.5px] border-ink px-5 py-4">
-          <p className="font-mono text-[12px] uppercase tracking-[0.06em]">Cliente</p>
+          <p className="font-normal text-[12px] uppercase tracking-[0.06em]">Cliente</p>
           <p className="mt-1 text-[14px] font-medium leading-snug">{client.name}</p>
           <p className="mt-0.5 text-[13px] text-body">{client.sector}</p>
         </div>
@@ -64,7 +64,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
         </nav>
         <div className="border-t-[1.5px] border-ink p-4">
           <div className="bg-paper-2 p-3.5">
-            <p className="font-mono text-[12px] uppercase tracking-[0.06em]">Il vostro referente</p>
+            <p className="font-normal text-[12px] uppercase tracking-[0.06em]">Il vostro referente</p>
             <p className="mt-1 text-[14px] font-medium">{ref.name}</p>
             <a href="mailto:info@synapsi-analytics.it" className="mt-1 inline-block text-[13px] underline underline-offset-4 hover:bg-ob">
               Scrivi al referente
@@ -90,7 +90,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
             <span className="lg:hidden">
               <Logo />
             </span>
-            <span className="hidden border-[1.5px] border-ink px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-body sm:inline lg:inline">
+            <span className="hidden border-[1.5px] border-ink px-2.5 py-1 font-normal text-[11px] uppercase tracking-[0.06em] text-body sm:inline lg:inline">
               Ambiente di esempio
             </span>
           </div>

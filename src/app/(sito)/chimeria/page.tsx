@@ -77,7 +77,7 @@ export default function ChimeriaPage() {
         service={service}
         title={
           <>
-            Capire come funziona un&apos;organizzazione. <Mark code="AC">Far crescere chi la guida.</Mark>
+            Capire come funziona un’organizzazione. <Mark code="AC">Far crescere chi la guida.</Mark>
           </>
         }
         lead="Interviste strutturate di 45 minuti condotte da psicologi: domande fisse, si chiedono episodi e non giudizi. Chimeria non valuta le persone: dice a che livello nasce un problema, nella cultura o nel clima, e per ogni criticità indica una leva."
@@ -87,7 +87,7 @@ export default function ChimeriaPage() {
         <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-4">
             <Section n="01">La mappa</Section>
-            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Un&apos;azienda non ha un voto. Ha una mappa.</Display>
+            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Un’azienda non ha un voto. Ha una mappa.</Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
               Ogni area, in ogni reparto, è collocata in uno stato, con la sua forza: condivisa fra chi ha risposto, o divisa. I numeri ci sono, e ognuno
               porta la sua base: quante persone hanno parlato, su quante.
@@ -114,13 +114,13 @@ export default function ChimeriaPage() {
           <Section n="02">Le dodici aree</Section>
           <Display className="mt-4.5 max-w-3xl text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Il clima si regola, la cultura si cambia.</Display>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-body">
-            Il modello di Burke e Litwin, nell&apos;ordine in cui le cause producono gli effetti: dalla cultura, al clima, alla performance.
+            Il modello di Burke e Litwin, nell’ordine in cui le cause producono gli effetti: dalla cultura, al clima, alla performance.
           </p>
           <div className="mt-12 flex flex-col gap-8">
             {groups.map((g) => (
               <div key={g.label}>
                 <p className="mb-3 font-mono text-[13px]">
-                  {g.label.toUpperCase()} — {g.note}
+                  {g.label.toUpperCase()}: {g.note}
                 </p>
                 <ol className="grid gap-[1.5px] border-[1.5px] border-ink bg-ink sm:grid-cols-2 lg:grid-cols-4">
                   {chimeriaCriteria.slice(g.from, g.to).map((c, i) => (
@@ -145,7 +145,7 @@ export default function ChimeriaPage() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {lines.map((l) => (
               <article key={l.name} className="flex flex-col gap-3 border border-rule-dark p-7">
-                <span className="font-mono text-[12px] uppercase text-ob">{l.meta}</span>
+                <span className="font-normal text-[12px] uppercase text-ob">{l.meta}</span>
                 <h3 className="display text-[30px]">{l.name}</h3>
                 <p className="leading-relaxed text-body-dark">{l.text}</p>
                 <dl className="mt-auto pt-4">

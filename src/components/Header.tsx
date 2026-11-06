@@ -35,7 +35,7 @@ export function Header() {
       <div className="mx-auto flex min-h-18 max-w-[1320px] items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
         <Logo />
 
-        <nav aria-label="Principale" className="hidden items-center gap-7 font-mono text-[13px] uppercase tracking-[0.06em] lg:flex">
+        <nav aria-label="Principale" className="hidden items-center gap-7 font-normal text-[13px] uppercase tracking-[0.06em] lg:flex">
           <button
             type="button"
             aria-expanded={servicesOpen}
@@ -64,7 +64,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/portale/accesso" className="hidden min-h-11.5 items-center px-3 font-mono text-[13px] uppercase tracking-[0.06em] hover:bg-ob xl:inline-flex">
+          <Link href="/portale/accesso" className="hidden min-h-11.5 items-center px-3 font-normal text-[13px] uppercase tracking-[0.06em] hover:bg-ob xl:inline-flex">
             Area clienti
           </Link>
           <Link
@@ -94,7 +94,7 @@ export function Header() {
             {services.map((s) => (
               <li key={s.href} className="border-l-[1.5px] border-ink last:border-r-[1.5px]">
                 <Link href={s.href} onClick={close} className="group flex h-full flex-col gap-2 p-5 hover:bg-primary-soft">
-                  <span className="font-mono text-[12px] uppercase tracking-[0.06em] text-primary">{s.product}</span>
+                  <span className="font-normal text-[12px] uppercase tracking-[0.06em] text-primary">{s.product}</span>
                   <span className="display text-[22px]">{s.label}</span>
                   <span className="text-[14px] leading-snug text-body">{s.need}</span>
                   <span aria-hidden="true" className="mt-auto pt-2 text-primary transition-transform group-hover:translate-x-1">→</span>
@@ -107,19 +107,19 @@ export function Header() {
 
       {open && (
         <nav id="menu-mobile" aria-label="Principale mobile" className="border-t-[1.5px] border-ink lg:hidden">
-          <p className="border-b-[1.5px] border-ink px-4 pb-2 pt-4 font-mono text-[12px] uppercase tracking-[0.06em]">Cosa facciamo</p>
+          <p className="border-b-[1.5px] border-ink px-4 pb-2 pt-4 font-normal text-[12px] uppercase tracking-[0.06em]">Cosa facciamo</p>
           <ul>
             {services.map((s) => (
               <li key={s.href} className="border-b-[1.5px] border-ink">
                 <Link href={s.href} onClick={close} className="flex items-baseline justify-between gap-4 px-4 py-3.5 hover:bg-ob">
                   <span className="display text-2xl">{s.label}</span>
-                  <span className="font-mono text-[12px] uppercase">{s.product}</span>
+                  <span className="font-normal text-[12px] uppercase">{s.product}</span>
                 </Link>
               </li>
             ))}
             {[...nav, { href: "/portale/accesso", label: "Area clienti" }].map((item) => (
               <li key={item.href} className="border-b-[1.5px] border-ink last:border-b-0">
-                <Link href={item.href} onClick={close} className="flex px-4 py-3.5 font-mono text-[13px] uppercase tracking-[0.06em] hover:bg-ob">
+                <Link href={item.href} onClick={close} className="flex px-4 py-3.5 font-normal text-[13px] uppercase tracking-[0.06em] hover:bg-ob">
                   {item.label}
                 </Link>
               </li>

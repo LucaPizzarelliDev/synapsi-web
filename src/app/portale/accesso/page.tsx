@@ -11,7 +11,7 @@ export default function AccessoPage() {
       <div className="flex flex-col px-6 py-8 sm:px-12">
         <Logo />
         <div className="mx-auto flex w-full max-w-[380px] flex-1 flex-col justify-center py-12">
-          <p className="font-mono text-[12px] uppercase tracking-[0.06em]">Portale clienti</p>
+          <p className="font-normal text-[12px] uppercase tracking-[0.06em]">Portale clienti</p>
           <h1 className="display mt-2 text-[32px]">Accedi</h1>
           <p className="mb-8 mt-2 text-[15px] leading-relaxed text-body">Report, mappe e stato dei lavori della vostra azienda, in un unico posto.</p>
           <LoginForm />
@@ -24,7 +24,7 @@ export default function AccessoPage() {
         </p>
       </div>
       <div className="hidden flex-col justify-between bg-ink p-12 text-paper lg:flex">
-        <p className="font-mono text-[12px] uppercase tracking-[0.06em]-dark">Synapsi Analytics</p>
+        <p className="font-normal text-[12px] uppercase tracking-[0.06em] text-body-dark">Synapsi Analytics</p>
         <div>
           <p className="display max-w-md text-[40px]">Ogni conclusione rimanda a un fatto. Ogni report porta una firma.</p>
           <ul className="mt-10 grid max-w-md gap-4 text-[15px] text-body-dark">

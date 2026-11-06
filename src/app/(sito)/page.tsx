@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { EvidenceFlow, HeroDiagram } from "@/components/graphics";
+import { EvidenceFlow, HeroFlow } from "@/components/graphics";
 import { Button, Container, CtaBand, Display, Mark, Section } from "@/components/ui";
 import { services, team } from "@/lib/site";
 
@@ -23,7 +23,7 @@ export default function Home() {
       <section className="border-b-[1.5px] border-ink">
         <Container className="flex flex-wrap items-center gap-x-[clamp(40px,5vw,72px)] gap-y-12 pb-16 pt-12 sm:pt-20 lg:pb-24">
           <div className="min-w-0 flex-[1.2_1_520px]">
-          <p className="font-mono text-[13px]">Psicologi del lavoro + intelligenza artificiale · Brescia</p>
+          <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-body">Psicologi del lavoro + intelligenza artificiale · Brescia</p>
           <Display as="h1" className="mt-7 text-[clamp(2.5rem,4.1vw,4rem)]">
             Vi aiutiamo a capire <Mark code="OB">come lavorano davvero</Mark> le vostre persone.
           </Display>
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           </div>
           <div className="min-w-0 flex-[1_1_400px]">
-            <HeroDiagram />
+            <HeroFlow />
           </div>
         </Container>
       </section>
@@ -59,18 +59,18 @@ export default function Home() {
                   className="group grid gap-x-10 gap-y-4 py-8 transition-colors hover:bg-primary-soft lg:grid-cols-[1.15fr_1fr_1fr_auto] lg:px-4"
                 >
                   <div>
-                    <p className="font-mono text-[12px] uppercase tracking-[0.06em]">{s.label}</p>
+                    <p className="text-[11px] font-normal uppercase tracking-[0.12em]">{s.label}</p>
                     <p className="display mt-3 text-[clamp(1.5rem,2vw,1.875rem)] leading-[1.15]">{s.need}</p>
                   </div>
                   <div>
-                    <p className="font-mono text-[12px] uppercase tracking-[0.06em]">Cosa facciamo</p>
+                    <p className="text-[11px] font-normal uppercase tracking-[0.12em]">Cosa facciamo</p>
                     <p className="mt-3 leading-relaxed text-body">{s.what}</p>
                   </div>
                   <div>
-                    <p className="font-mono text-[12px] uppercase tracking-[0.06em]">Cosa ricevete</p>
+                    <p className="text-[11px] font-normal uppercase tracking-[0.12em]">Cosa ricevete</p>
                     <p className="mt-3 leading-relaxed text-body">{s.get}</p>
                   </div>
-                  <span className="flex items-center gap-3 self-end font-mono text-[13px] uppercase text-primary lg:self-center">
+                  <span className="flex items-center gap-3 self-end text-[13px] font-normal uppercase tracking-[0.08em] text-primary lg:self-center">
                     {s.product}
                     <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                   </span>
@@ -91,7 +91,7 @@ export default function Home() {
           <ol className="mt-12 grid gap-8 border-t border-rule-dark pt-8 md:grid-cols-3">
             {steps.map((s) => (
               <li key={s.n}>
-                <span className="flex h-10 w-10 items-center justify-center bg-primary font-mono text-[15px] text-paper">{s.n}</span>
+                <span className="flex h-10 w-10 items-center justify-center bg-primary text-[15px] font-medium text-paper">{s.n}</span>
                 <h3 className="display mt-5 text-[24px]">{s.title}</h3>
                 <p className="mt-3 leading-relaxed text-body-dark">{s.text}</p>
               </li>
@@ -119,7 +119,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="min-w-0 flex-[1_1_440px]">
-            <p className="pb-3 font-mono text-[12px] uppercase tracking-[0.06em]">Un esempio: dalla frase al report</p>
+            <p className="pb-3 text-[11px] font-normal uppercase tracking-[0.12em]">Un esempio: dalla frase al report</p>
             <EvidenceFlow />
           </div>
         </Container>
@@ -132,8 +132,8 @@ export default function Home() {
             <Section n="04">Chi siamo</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.6vw,3.25rem)] leading-[1.05]">Due psicologi. Due specialisti AI.</Display>
             <p className="mt-4.5 max-w-[440px] text-[17px] leading-relaxed text-body">
-              Chi conduce i colloqui lavora accanto a chi costruisce gli strumenti. Il metodo è stato oggetto di una tesi all&apos;Università Cattolica di
-              Brescia, applicato in un&apos;azienda reale.
+              Chi conduce i colloqui lavora accanto a chi costruisce gli strumenti. Il metodo è stato oggetto di una tesi all’Università Cattolica di
+              Brescia, applicato in un’azienda reale.
             </p>
             <Link href="/studio" className="mt-8 inline-flex font-semibold text-primary underline underline-offset-[6px] hover:text-primary-dark">
               Conosci lo studio →

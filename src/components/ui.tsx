@@ -1,17 +1,19 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { codeBg, type Code } from "@/lib/site";
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-10 ${className}`}>{children}</div>;
 }
 
-/** Etichetta di sezione in stile referto: «§ 01 — Persone» */
-export function Section({ n, children, dark = false }: { n?: string; children: ReactNode; dark?: boolean }) {
+/** Etichetta di sezione: kicker sans in maiuscoletto, racchiuso dalle parentesi
+ *  quadre del logo [synapsi]. Colorato (viola su chiaro, ob su scuro). */
+export function Section({ children, dark = false }: { n?: string; children: ReactNode; dark?: boolean }) {
   return (
-    <p className={`font-mono text-[13px] ${dark ? "text-ob" : ""}`}>
-      {n && <>§ {n} — </>}
+    <p className={`text-[11px] font-normal uppercase tracking-[0.12em] ${dark ? "text-ob" : "text-primary"}`}>
+      <span className="font-semibold" aria-hidden="true">[ </span>
       {children}
+      <span className="font-semibold" aria-hidden="true"> ]</span>
     </p>
   );
 }
@@ -48,10 +50,6 @@ export function CodeTag({ code, className = "" }: { code: Code; className?: stri
   return <span className={`inline-block px-1.5 py-0.5 font-mono text-[12px] leading-none ${codeBg[code]} ${className}`}>[{code}]</span>;
 }
 
-export function Chip({ children }: { children: ReactNode }) {
-  return <li className="frame bg-paper px-2.5 py-1.5 font-mono text-[13px]">{children}</li>;
-}
-
 export function Button({
   href,
   children,
@@ -75,30 +73,44 @@ export function Button({
 }
 
 /** Cornice "documento": barra in alto in mono, contenuto, didascalia */
+/** Avvolge un contenuto con la profondità estrusa (due facce solide a 45°),
+ *  come le card dell'hero. Il figlio riceve la profondità attorno a sé. */
+export function Extruded({ depth = 6, className = "", children }: { depth?: number; className?: string; children: ReactNode }) {
+  return (
+    <div className={`relative ${className}`} style={{ "--d": `${depth}px` } as CSSProperties}>
+      <span aria-hidden="true" className="pointer-events-none absolute left-full top-0 h-full w-[var(--d)] origin-top-left bg-ink [transform:skewY(45deg)]" />
+      <span aria-hidden="true" className="pointer-events-none absolute left-0 top-full h-[var(--d)] w-full origin-top-left bg-ink [transform:skewX(45deg)]" />
+      {children}
+    </div>
+  );
+}
+
+/** Cornice "documento" con la profondità estrusa dell'hero. `h-full` così la
+ *  cornice riempie la cella di griglia (altrimenti l'estrusione si stacca). */
 export function DocFrame({
   title,
   meta,
   caption,
   children,
-  shadow = false,
   className = "",
 }: {
   title: string;
   meta?: string;
   caption?: ReactNode;
   children: ReactNode;
-  shadow?: boolean;
   className?: string;
 }) {
   return (
-    <figure className={`m-0 bg-paper ${shadow ? "frame-shadow" : "frame"} ${className}`}>
-      <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4.5 py-3 font-mono text-[12px] uppercase tracking-[0.06em]">
-        <span>{title}</span>
-        {meta && <span>{meta}</span>}
-      </div>
-      {children}
-      {caption && <figcaption className="border-t-[1.5px] border-ink px-4.5 py-3.5">{caption}</figcaption>}
-    </figure>
+    <Extruded className={className}>
+      <figure className="relative m-0 flex h-full flex-col frame bg-paper">
+        <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4.5 py-3 text-[11px] font-normal uppercase tracking-[0.12em]">
+          <span>{title}</span>
+          {meta && <span>{meta}</span>}
+        </div>
+        {children}
+        {caption && <figcaption className="mt-auto border-t-[1.5px] border-ink px-4.5 py-3.5">{caption}</figcaption>}
+      </figure>
+    </Extruded>
   );
 }
 
@@ -121,7 +133,7 @@ export function PageIntro({
     <section className="border-b-[1.5px] border-ink">
       <Container className="grid gap-12 py-16 sm:py-24 lg:grid-cols-12 lg:items-end">
         <div className={aside ? "lg:col-span-7" : "lg:col-span-10"}>
-          <p className="font-mono text-[13px]">{label}</p>
+          <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-body">{label}</p>
           <Display as="h1" className="mt-7 text-[clamp(3rem,6.4vw,6.25rem)]">
             {title}
           </Display>
@@ -141,7 +153,7 @@ export function PageIntro({
             ] as const
           ).map(([k, v]) => (
             <div key={k}>
-              <p className="font-mono text-[12px] uppercase tracking-[0.06em]">{k}</p>
+              <p className="text-[11px] font-normal uppercase tracking-[0.12em]">{k}</p>
               <p className="mt-2.5 leading-relaxed">{v}</p>
             </div>
           ))}

@@ -24,7 +24,7 @@ export default function MetodoPage() {
   return (
     <>
       <PageIntro
-        label="§ Metodo"
+        label="Il metodo"
         title={
           <>
             Qualitativo, <Mark code="PS">con rigore quantitativo.</Mark>
@@ -70,7 +70,7 @@ export default function MetodoPage() {
             <Section n="03" dark>
               Garanzie
             </Section>
-            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">L&apos;AI trascrive e organizza. Non decide.</Display>
+            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">L’AI trascrive e organizza. Non decide.</Display>
           </div>
           <dl className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
             {guarantees.map(([t, d]) => (

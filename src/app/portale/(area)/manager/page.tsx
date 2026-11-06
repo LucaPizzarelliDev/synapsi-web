@@ -25,7 +25,7 @@ export default function ManagerPage() {
             <Card key={c.id} title={`Ciclo ${c.person} · ${c.role}`} action={<span className="font-mono text-[12px]">{psychologists[c.psychologist].short}</span>}>
               <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
                 <div>
-                  <p className="font-mono text-[12px] uppercase">Fase: {c.stage}</p>
+                  <p className="font-normal text-[12px] uppercase">Fase: {c.stage}</p>
                   <div className="mt-2 flex gap-1" role="img" aria-label={`Fase ${current + 1} di ${prismiaStages.length}: ${c.stage}`}>
                     {prismiaStages.map((s, i) => (
                       <span key={s} title={s} className={`h-1.5 flex-1 ${i <= current ? "bg-ink" : "bg-line"}`} />
@@ -60,7 +60,7 @@ export default function ManagerPage() {
                   {!c.consentHR && (
                     <p className="flex items-start gap-2.5 border-[1.5px] border-dashed border-ink px-3.5 py-3 text-[14px] leading-snug">
                       <Icon d={icons.lock} className="mt-0.5 h-4 w-4 shrink-0" />
-                      Card e piano di sviluppo sono della persona. Visibili all&apos;HR solo con il suo consenso scritto.
+                      Card e piano di sviluppo sono della persona. Visibili all’HR solo con il suo consenso scritto.
                     </p>
                   )}
                   {docs.length === 0 && c.consentHR && <p className="text-[14px] text-body">Nessun documento ancora.</p>}

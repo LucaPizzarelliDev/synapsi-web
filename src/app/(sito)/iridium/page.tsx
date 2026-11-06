@@ -64,8 +64,8 @@ export default function IridiumPage() {
             <Section n="01">Per chi</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Produttori individuali, nella stessa struttura.</Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
-              Consulenti finanziari, private banker, agenti assicurativi, forze vendita a mandato. Il committente è la direzione rete o l&apos;HR. Lo scopo è lo
-              sviluppo dell&apos;ufficio: affiancamenti e coppie di lavoro, mai incentivi, classifiche o decisioni contrattuali.
+              Consulenti finanziari, private banker, agenti assicurativi, forze vendita a mandato. Il committente è la direzione rete o l’HR. Lo scopo è lo
+              sviluppo dell’ufficio: affiancamenti e coppie di lavoro, mai incentivi, classifiche o decisioni contrattuali.
             </p>
           </div>
           <ol className="grid gap-[1.5px] border-[1.5px] border-ink bg-ink lg:col-span-8">
@@ -88,7 +88,7 @@ export default function IridiumPage() {
           <Section n="02" dark>
             La seduta
           </Section>
-          <Display className="mt-4.5 max-w-3xl text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Un&apos;ora per consulente. Tre strumenti.</Display>
+          <Display className="mt-4.5 max-w-3xl text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Un’ora per consulente. Tre strumenti.</Display>
           <div className="mt-12 flex flex-col gap-[1.5px] border-[1.5px] border-paper bg-paper sm:flex-row" role="img" aria-label="Seduta di 60 minuti: Viseria 30, Chimeria Coopetition 25, Prismia 5">
             {session.map((s) => (
               <div key={s.name} className={`${s.cls} p-5 text-ink`} style={{ flexGrow: s.min, flexBasis: 0, minWidth: 140 }}>
@@ -100,7 +100,7 @@ export default function IridiumPage() {
           </div>
           <p className="mt-8 max-w-3xl leading-relaxed text-body-dark">
             Dopo la seduta, una breve scheda sul clima competitivo e sulle collaborazioni. Il manager è intervistato per primo, poi il responsabile di area,
-            poi i consulenti. Ogni livello ha una lettura qualitativa, dall&apos;intervista, e una quantitativa, da scale e reti di collaborazione.
+            poi i consulenti. Ogni livello ha una lettura qualitativa, dall’intervista, e una quantitativa, da scale e reti di collaborazione.
           </p>
         </Container>
       </section>
@@ -111,7 +111,7 @@ export default function IridiumPage() {
             <Section n="03">Cosa ricevete</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Tre card, una diagnosi.</Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
-              Il prodotto è l&apos;incrocio: quanto ogni persona è in tensione con il campo in cui lavora, e quanto il manager legge l&apos;ufficio come lo
+              Il prodotto è l’incrocio: quanto ogni persona è in tensione con il campo in cui lavora, e quanto il manager legge l’ufficio come lo
               legge il gruppo.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function IridiumPage() {
             <Section n="04">Chi vede cosa</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Tre consensi distinti, per ogni persona.</Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
-              Ognuno può dire sì a una parte e no a un&apos;altra, e ritirarsi fino alla chiusura del campo. La rete delle rivalità non compare mai con i nomi.
+              Ognuno può dire sì a una parte e no a un’altra, e ritirarsi fino alla chiusura del campo. La rete delle rivalità non compare mai con i nomi.
               Sotto le soglie minime di partecipazione un dato non si mostra. Si lavora a progetto, con un pilota su un solo ufficio.
             </p>
           </div>

@@ -67,7 +67,7 @@ export function ReportTable() {
                   </Link>
                 </td>
                 <td className="px-3 py-3.5">
-                  <span className="font-mono text-[12px] uppercase">{r.product}</span>
+                  <span className="font-normal text-[12px] uppercase">{r.product}</span>
                   <span className="block text-[13px] text-body">{r.kind}</span>
                 </td>
                 <td className="px-3 py-3.5 text-body">{formatDate(r.date)}</td>

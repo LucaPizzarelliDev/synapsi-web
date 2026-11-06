@@ -33,7 +33,7 @@ export default function SportPage() {
       <section className="overflow-hidden bg-ink text-paper">
         <Container className="flex flex-wrap items-center gap-x-[clamp(40px,5vw,80px)] gap-y-12 py-16 sm:py-24">
           <div className="min-w-0 flex-[1.2_1_520px]">
-            <p className="font-mono text-[13px] text-ob">[sport] · nuova divisione</p>
+            <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-ob">[sport] · nuova divisione</p>
             <Display as="h1" className="mt-7 text-[clamp(3rem,5.4vw,5.25rem)]">
               Si vede in campo. <span className="text-ob">Nasce fuori.</span>
             </Display>
@@ -69,8 +69,8 @@ export default function SportPage() {
             <div className="flex flex-col gap-4 px-6 py-7">
               <h2 className="display text-[clamp(2rem,3.4vw,3rem)]">Il club come organizzazione</h2>
               <p className="text-lg leading-relaxed text-body">
-                Dodici aree lette dalla direzione (proprietà, direzione sportiva, capo allenatore) fino all&apos;operatività (staff,
-                squadra, uffici). Per la società intera, un&apos;area o un&apos;interfaccia fra aree.
+                Dodici aree lette dalla direzione (proprietà, direzione sportiva, capo allenatore) fino all’operatività (staff,
+                squadra, uffici). Per la società intera, un’area o un’interfaccia fra aree.
               </p>
               <p className="text-lg leading-relaxed">
                 <Mark code="AC">Un club non ha un voto, ha una mappa.</Mark>
@@ -99,7 +99,7 @@ export default function SportPage() {
       <section>
         <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-2">
           <div>
-            <Section n="02">Esempi d&apos;uso</Section>
+            <Section n="02">Esempi d’uso</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">
               Situazioni che ogni direttore sportivo riconosce.
             </Display>

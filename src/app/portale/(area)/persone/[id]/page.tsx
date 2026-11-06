@@ -62,7 +62,7 @@ export default async function PersonaPage({ params }: PageProps<"/portale/person
               </span>
             )}
             {a.vgi && (
-              <span className="flex items-center gap-2 font-mono text-[12px] uppercase">
+              <span className="flex items-center gap-2 font-normal text-[12px] uppercase">
                 <span className={`h-3 w-3 ${a.vgi >= 75 ? "bg-ac" : a.vgi >= 60 ? "bg-ob" : "bg-ip"} border border-ink`} aria-hidden="true" />
                 Validità del colloquio {a.vgi}/100
               </span>

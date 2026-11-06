@@ -7,7 +7,7 @@ export function PageHeader({ eyebrow, title, lead, actions }: { eyebrow?: string
   return (
     <div className="flex flex-wrap items-end justify-between gap-4 pb-8">
       <div className="min-w-0">
-        {eyebrow && <p className="font-mono text-[12px] uppercase tracking-[0.06em]">{eyebrow}</p>}
+        {eyebrow && <p className="font-normal text-[12px] uppercase tracking-[0.06em]">{eyebrow}</p>}
         <h1 className="display mt-2 text-[clamp(2rem,3.4vw,2.75rem)]">{title}</h1>
         {lead && <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-body">{lead}</p>}
       </div>
@@ -20,7 +20,7 @@ export function Card({ title, action, children, className = "", flush = false }:
   return (
     <section className={`border-[1.5px] border-ink bg-paper ${className}`}>
       {title && (
-        <div className="flex items-center justify-between gap-3 border-b-[1.5px] border-ink px-5 py-3 font-mono text-[12px] uppercase tracking-[0.06em]">
+        <div className="flex items-center justify-between gap-3 border-b-[1.5px] border-ink px-5 py-3 font-normal text-[12px] uppercase tracking-[0.06em]">
           <h2 className="font-normal">{title}</h2>
           {action}
         </div>
@@ -33,7 +33,7 @@ export function Card({ title, action, children, className = "", flush = false }:
 export function Stat({ label, value, note }: { label: string; value: ReactNode; note?: string }) {
   return (
     <div className="border-[1.5px] border-ink bg-paper px-5 py-4">
-      <p className="font-mono text-[12px] uppercase tracking-[0.06em]">{label}</p>
+      <p className="font-normal text-[12px] uppercase tracking-[0.06em]">{label}</p>
       <p className="display mt-2 text-[32px]">{value}</p>
       {note && <p className="mt-0.5 text-[13px] text-body">{note}</p>}
     </div>
@@ -49,7 +49,7 @@ const stageStyle: Record<Stage, string> = {
 };
 
 export function StageBadge({ stage }: { stage: Stage }) {
-  return <span className={`inline-flex items-center px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.04em] ${stageStyle[stage]}`}>{stage}</span>;
+  return <span className={`inline-flex items-center px-2 py-0.5 font-normal text-[11px] uppercase tracking-[0.04em] ${stageStyle[stage]}`}>{stage}</span>;
 }
 
 /** Avanzamento: cinque tacche, dal pianificato al consegnato */

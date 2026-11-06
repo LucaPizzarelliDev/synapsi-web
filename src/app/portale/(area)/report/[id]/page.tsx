@@ -51,7 +51,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
         </header>
 
         <div className="px-8 py-10 sm:px-12">
-          <p className="font-mono text-[12px] uppercase tracking-[0.06em]">
+          <p className="font-normal text-[12px] uppercase tracking-[0.06em]">
             {r.product} · {r.kind}
           </p>
           <h1 className="display mt-2 text-[32px]">{r.title}</h1>
@@ -61,7 +61,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
 
           {a?.scores ? (
             <>
-              <section className="mt-8 flex flex-wrap items-center gap-4 border-[1.5px] border-ink px-4 py-3 font-mono text-[12px] uppercase">
+              <section className="mt-8 flex flex-wrap items-center gap-4 border-[1.5px] border-ink px-4 py-3 font-normal text-[12px] uppercase">
                 <span>Persona: {r.title.split("· ")[1]}</span>
                 <span>Assessor: {signer.short}</span>
                 {a.vgi && (
@@ -77,7 +77,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
               <section className="mt-8 break-inside-avoid">
                 <h2 className="text-[17px] font-semibold">Fattori</h2>
                 <table className="mt-3 w-full text-[14px]">
-                  <thead className="font-mono text-[11px] uppercase">
+                  <thead className="font-normal text-[11px] uppercase">
                     <tr className="border-b-[1.5px] border-ink">
                       <th scope="col" className="py-2 text-left font-normal">Fattore</th>
                       <th scope="col" className="py-2 text-right font-normal">Punteggio</th>
@@ -125,7 +125,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
               <section className="mt-10">
                 <h2 className="text-[17px] font-semibold">Il quadro in una pagina</h2>
                 <p className="mt-2 text-[15px] leading-relaxed">
-                  L&apos;organizzazione tiene su struttura e sistemi. I punti di sviluppo si concentrano nei passaggi fra reparti e nel modo in cui le priorità
+                  L’organizzazione tiene su struttura e sistemi. I punti di sviluppo si concentrano nei passaggi fra reparti e nel modo in cui le priorità
                   arrivano dalla direzione alle linee operative.
                 </p>
                 <dl className="mt-5 grid grid-cols-2 gap-[1.5px] border-[1.5px] border-ink bg-ink sm:grid-cols-4">
@@ -136,7 +136,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
                     ["Celle in sviluppo", "8", "su 60"],
                   ].map(([k, v, n]) => (
                     <div key={k} className="bg-paper p-3.5">
-                      <dt className="font-mono text-[11px] uppercase">{k}</dt>
+                      <dt className="font-normal text-[11px] uppercase">{k}</dt>
                       <dd className="display mt-1 text-[26px]">{v}</dd>
                       <dd className="font-mono text-[11px] text-body">{n}</dd>
                     </div>
@@ -162,7 +162,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
             </>
           ) : r.kind === "Allegato HR" ? (
             <section className="mt-10">
-              <h2 className="text-[17px] font-semibold">Allegato per l&apos;HR · ciclo Prismia</h2>
+              <h2 className="text-[17px] font-semibold">Allegato per l’HR · ciclo Prismia</h2>
               <dl className="mt-4 divide-y divide-line border-y-[1.5px] border-ink text-[14px]">
                 {[
                   ["Interviste svolte", "6 su 8"],
@@ -178,13 +178,13 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
                 ))}
               </dl>
               <p className="mt-4 text-[14px] leading-relaxed">
-                Questo allegato non contiene episodi né valutazioni. Card e piano di sviluppo sono della persona e arrivano all&apos;HR solo con il suo consenso
+                Questo allegato non contiene episodi né valutazioni. Card e piano di sviluppo sono della persona e arrivano all’HR solo con il suo consenso
                 scritto.
               </p>
             </section>
           ) : r.kind === "Card Prismia" ? (
             <section className="mt-10">
-              <h2 className="text-[17px] font-semibold">Colpo d&apos;occhio</h2>
+              <h2 className="text-[17px] font-semibold">Colpo d’occhio</h2>
               <p className="mt-2 text-[15px] leading-relaxed">
                 Decide con rapidità ed è visto come coerente fra ciò che dice e ciò che fa. Lo scarto più ampio è sul disaccordo: si racconta più aperto di
                 come lo raccontano i collaboratori.
@@ -202,14 +202,14 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 font-mono text-[12px]">fonti raccolte: capo 1/1 · pari 3/3 · collaboratori 4/4 · condivisa con l&apos;HR con consenso scritto</p>
+              <p className="mt-4 font-mono text-[12px]">fonti raccolte: capo 1/1 · pari 3/3 · collaboratori 4/4 · condivisa con l’HR con consenso scritto</p>
             </section>
           ) : (
             <section className="mt-10">
               <h2 className="text-[17px] font-semibold">Contenuto</h2>
               <p className="mt-2 text-[15px] leading-relaxed text-body">
-                Documento di {r.pages} pagine. In questo ambiente di esempio è mostrata solo l&apos;intestazione; il file originale sarà disponibile
-                con l&apos;attivazione dell&apos;archivio.
+                Documento di {r.pages} pagine. In questo ambiente di esempio è mostrata solo l’intestazione; il file originale sarà disponibile
+                con l’attivazione dell’archivio.
               </p>
             </section>
           )}
@@ -218,7 +218,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portale/repo
             <div>
               <p className="text-[12px] text-body">Firmato da</p>
               <p className="mt-1 font-medium">{signer.name}</p>
-              <p className="text-body">Psicologo iscritto all&apos;Albo · Synapsi Analytics</p>
+              <p className="text-body">Psicologo iscritto all’Albo · Synapsi Analytics</p>
             </div>
             <p className="text-[12px] leading-relaxed text-body">
               Le conclusioni descrivono un assetto temporaneo nel contesto indicato, non caratteristiche stabili della persona. Ogni affermazione rimanda a

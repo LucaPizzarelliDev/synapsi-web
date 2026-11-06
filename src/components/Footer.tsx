@@ -14,7 +14,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h2 className="font-mono text-[12px] uppercase tracking-[0.08em] text-ob">Cosa facciamo</h2>
+          <h2 className="font-normal text-[12px] uppercase tracking-[0.08em] text-ob">Cosa facciamo</h2>
           <ul className="mt-4 flex flex-col gap-2">
             {[...services, ...nav].map((item) => (
               <li key={item.href}>
@@ -26,7 +26,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="font-mono text-[12px] uppercase tracking-[0.08em] text-ob">Contatti</h2>
+          <h2 className="font-normal text-[12px] uppercase tracking-[0.08em] text-ob">Contatti</h2>
           <ul className="mt-4 flex flex-col gap-2 text-body-dark">
             <li>
               <a href={`mailto:${contact.email}`} className="text-paper underline underline-offset-4 hover:text-ob">
@@ -37,16 +37,16 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="font-mono text-[12px] uppercase tracking-[0.08em] text-ob">Garanzie</h2>
+          <h2 className="font-normal text-[12px] uppercase tracking-[0.08em] text-ob">Garanzie</h2>
           <ul className="mt-4 flex flex-col gap-2 text-body-dark">
-            <li>Psicologi iscritti all&apos;Albo</li>
+            <li>Psicologi iscritti all’Albo</li>
             <li>GDPR · dati in UE</li>
             <li>AI Act · supervisione umana</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-rule-dark">
-        <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-2 px-4 py-6 font-mono text-[12px] text-body-dark sm:flex-row sm:px-6 lg:px-10">
+        <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-2 px-4 py-6 font-medium text-[12px] text-body-dark sm:flex-row sm:px-6 lg:px-10">
           <span>© Synapsi Analytics</span>
           <span>Brescia, Italia</span>
         </div>

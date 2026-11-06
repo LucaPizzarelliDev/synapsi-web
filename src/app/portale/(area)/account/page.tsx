@@ -10,7 +10,7 @@ export default function AccountPage() {
       <PageHeader eyebrow={client.name} title="Account e privacy" lead="Chi può accedere al portale, con quali permessi, e come trattiamo i dati raccolti nei colloqui." />
 
       <div className="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
-        <Card title="Utenti con accesso" action={<span className="text-[13px] text-body">Gestiti dall&apos;amministratore</span>} flush>
+        <Card title="Utenti con accesso" action={<span className="text-[13px] text-body">Gestiti dall’amministratore</span>} flush>
           <ul className="divide-y divide-line">
             {users.map((u) => (
               <li key={u.email} className="flex flex-wrap items-center gap-3 px-5 py-3.5">
@@ -51,7 +51,7 @@ export default function AccountPage() {
         <div className="grid gap-5 text-[14px] leading-relaxed sm:grid-cols-3">
           <div>
             <p className="font-medium">Dove</p>
-            <p className="text-body">Registrazioni, trascrizioni e report sono conservati su server nell&apos;Unione Europea.</p>
+            <p className="text-body">Registrazioni, trascrizioni e report sono conservati su server nell’Unione Europea.</p>
           </div>
           <div>
             <p className="font-medium">Per quanto</p>
@@ -59,7 +59,7 @@ export default function AccountPage() {
           </div>
           <div>
             <p className="font-medium">Chi decide</p>
-            <p className="text-body">L&apos;intelligenza artificiale supporta trascrizione e codifica. Ogni conclusione è rivista e firmata da uno psicologo.</p>
+            <p className="text-body">L’intelligenza artificiale supporta trascrizione e codifica. Ogni conclusione è rivista e firmata da uno psicologo.</p>
           </div>
         </div>
       </Card>

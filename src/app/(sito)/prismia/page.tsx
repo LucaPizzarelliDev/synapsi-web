@@ -88,10 +88,10 @@ export default function PrismiaPage() {
         <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Section n="01">Cinque dimensioni</Section>
-            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">L&apos;impatto, non la personalità.</Display>
+            <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">L’impatto, non la personalità.</Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
               Ogni dimensione è letta su quattro livelli, mai su una scala continua. Nessuna media, nessuna norma di popolazione: il confronto si fa con le
-              altre fonti e, se c&apos;è, con il check-up Chimeria.
+              altre fonti e, se c’è, con il check-up Chimeria.
             </p>
             <p className="mt-6 flex flex-wrap gap-1.5">
               {levels.map((l) => (
@@ -120,8 +120,8 @@ export default function PrismiaPage() {
             </Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Da sette a dieci interviste, in due settimane.</Display>
             <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-body-dark">
-              Circa quattro ore di raccolta in una finestra di 14 giorni. Il capo e i collaboratori li sceglie l&apos;HR; i pari li propone la persona e li
-              conferma l&apos;HR.
+              Circa quattro ore di raccolta in una finestra di 14 giorni. Il capo e i collaboratori li sceglie l’HR; i pari li propone la persona e li
+              conferma l’HR.
             </p>
           </div>
           <table className="self-end text-left">
@@ -148,14 +148,14 @@ export default function PrismiaPage() {
           <ol className="mt-12 grid gap-[1.5px] border-[1.5px] border-ink bg-ink sm:grid-cols-2 lg:grid-cols-3">
             {pages.map(([n, t, d]) => (
               <li key={n} className={`flex flex-col gap-3 p-6 ${n === "06" ? "bg-ob" : "bg-paper"}`}>
-                <span className="font-mono text-[12px]">PAGINA {n}</span>
+                <span className="text-[11px] font-normal uppercase tracking-[0.12em]">Pagina {n}</span>
                 <h3 className="display text-[24px]">{t}</h3>
                 <p className="leading-relaxed text-body">{d}</p>
               </li>
             ))}
           </ol>
           <p className="mt-6 max-w-3xl leading-relaxed text-body">
-            Ogni frase descrive un comportamento in una situazione, con l&apos;effetto che ha avuto. Nessun termine clinico, nessun aggettivo sulla
+            Ogni frase descrive un comportamento in una situazione, con l’effetto che ha avuto. Nessun termine clinico, nessun aggettivo sulla
             persona, nessun punteggio. La card non si consegna mai a freddo: sempre in un colloquio, con follow-up a sei mesi.
           </p>
         </Container>
@@ -166,10 +166,10 @@ export default function PrismiaPage() {
           <div className="lg:col-span-5">
             <Section n="04">Riservatezza</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">
-              Non promettiamo l&apos;anonimato assoluto. <Mark code="OB">Promettiamo la procedura.</Mark>
+              Non promettiamo l’anonimato assoluto. <Mark code="OB">Promettiamo la procedura.</Mark>
             </Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
-              Card e piano vanno alla persona. All&apos;HR solo con il suo consenso scritto; altrimenti l&apos;HR riceve un allegato di una pagina con
+              Card e piano vanno alla persona. All’HR solo con il suo consenso scritto; altrimenti l’HR riceve un allegato di una pagina con
               interviste, date e soglie rispettate. Il capo non ha accesso. Prismia si usa per lo sviluppo, mai per decisioni retributive, di promozione o
               disciplinari.
             </p>

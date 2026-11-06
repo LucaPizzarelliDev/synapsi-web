@@ -19,7 +19,7 @@ const spline = Spline_Sans_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Synapsi Analytics — Ascoltiamo episodi. Restituiamo evidenze.",
+    default: "Synapsi Analytics. Ascoltiamo episodi, restituiamo evidenze.",
     template: "%s · Synapsi Analytics",
   },
   description:

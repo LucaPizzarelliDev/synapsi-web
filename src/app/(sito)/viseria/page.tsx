@@ -97,7 +97,7 @@ export default function ViseriaPage() {
             </Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">Efficacia apparente o tenuta reale?</Display>
             <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-body-dark">
-              Due letture trasversali, senza punteggio: l&apos;intensità con cui la persona sta lavorando, e se quel ritmo regge. Le etichette
+              Due letture trasversali, senza punteggio: l’intensità con cui la persona sta lavorando, e se quel ritmo regge. Le etichette
               descrivono assetti temporanei, mai caratteristiche della persona: «assetto attuale prevalentemente ipercompensativo».
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function ViseriaPage() {
                 <span className="display text-[clamp(1.6rem,2.6vw,2.25rem)] font-bold tracking-[-0.02em]">
                   {i === 0 ? <span className="marker bg-ac text-ink">{a}</span> : a}
                 </span>
-                <span className="font-mono text-[12px] text-body-dark">assetto attuale</span>
+                <span className="text-[11px] font-normal uppercase tracking-[0.12em] text-body-dark">assetto attuale</span>
               </li>
             ))}
           </ul>
@@ -160,7 +160,7 @@ export default function ViseriaPage() {
               Una pagina per decidere. <Mark code="OB">Nessun punteggio complessivo.</Mark>
             </Display>
             <p className="mt-6 text-[17px] leading-relaxed text-body">
-              La Scouting Card apre ogni report. La versione LITE, di una-due pagine, va al committente e all&apos;HR ed è sempre consegnata con uno
+              La Scouting Card apre ogni report. La versione LITE, di una-due pagine, va al committente e all’HR ed è sempre consegnata con uno
               psicologo. La versione CORE, tecnica, resta allo psicologo.
             </p>
             <dl className="mt-10 border-[1.5px] border-ink">
@@ -202,7 +202,7 @@ export default function ViseriaPage() {
           <div>
             <Section n="05">Quando usarlo</Section>
             <Display className="mt-4.5 text-[clamp(2.25rem,3.4vw,3.25rem)] leading-[1.05]">
-              Quando sostituire è difficile, conta capire chi c&apos;è già.
+              Quando sostituire è difficile, conta capire chi c’è già.
             </Display>
           </div>
           <ul>

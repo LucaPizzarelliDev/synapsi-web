@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { chimeriaCriteria, codeBg, codes, viseriaFactors, methodSteps, notWeDo, type Code } from "@/lib/site";
-import { CodeTag, Container, DocFrame } from "./ui";
+import { CodeTag, Container, DocFrame, Extruded } from "./ui";
 
 /* ---------- Trascritto annotato ---------- */
 
@@ -11,13 +11,12 @@ function Said({ code, children }: { code: Code; children: ReactNode }) {
 export function Transcript() {
   return (
     <DocFrame
-      shadow
       title="Trascritto · Intervista 04"
       meta="00:12:41"
       caption={
-        <span className="flex flex-wrap justify-between gap-2 font-mono text-[12px]">
+        <span className="flex flex-wrap justify-between gap-2 text-[12px] text-body">
           <span>Estratto illustrativo, anonimizzato</span>
-          <span>Codifica rivista: ✓ psicologo</span>
+          <span className="inline-flex items-center gap-1.5"><Check /> Codifica rivista dallo psicologo</span>
         </span>
       }
     >
@@ -32,7 +31,7 @@ export function Transcript() {
         <span>
           Quando il collega si è ammalato <Said code="OB">ho coperto anche il suo turno, per tre settimane.</Said>{" "}
           <Said code="PS">Non volevo che il reparto si fermasse per colpa mia.</Said> Alla fine{" "}
-          <Said code="IP">nessuno se n&apos;è accorto.</Said>
+          <Said code="IP">nessuno se n’è accorto.</Said>
         </span>
         <span className="flex flex-col gap-1.5">
           <CodeTag code="OB" className="text-center" />
@@ -40,11 +39,11 @@ export function Transcript() {
           <CodeTag code="IP" className="text-center" />
         </span>
         <span className="font-mono text-[12px] text-body">INT</span>
-        <span className="text-body">E come l&apos;ha gestito?</span>
+        <span className="text-body">E come l’ha gestito?</span>
         <span />
         <span className="font-mono text-[12px]">P.</span>
         <span>
-          <Said code="AC">Ho riorganizzato i cambi con due operatori più giovani</Said>, ma non l&apos;ho detto al responsabile.
+          <Said code="AC">Ho riorganizzato i cambi con due operatori più giovani</Said>, ma non l’ho detto al responsabile.
         </span>
         <span className="flex flex-col">
           <CodeTag code="AC" className="text-center" />
@@ -106,7 +105,7 @@ export function ScoutingCard({
       meta={meta}
       caption={
         <p className="text-[17px] leading-normal">
-          <span className="mb-1.5 block font-mono text-[12px]">VERDETTO</span>
+          <span className="mb-1.5 block text-[11px] font-normal uppercase tracking-[0.12em]">Verdetto</span>
           {verdict}
         </p>
       }
@@ -220,6 +219,11 @@ export function PitchDiagram({ className = "" }: { className?: string }) {
   ];
   return (
     <svg viewBox="0 0 400 560" className={className} role="img" aria-label="Schema di un campo da calcio: direzione, staff tecnico, area medica e settore giovanile collegati fra loro">
+      {/* Profondità estrusa viola (facce laterali a 45°), come gli altri grafici */}
+      <g fill="var(--color-primary)">
+        <polygon points="380,20 386,26 386,546 380,540" />
+        <polygon points="20,540 380,540 386,546 26,546" />
+      </g>
       <g fill="none" stroke="#fff" strokeWidth="1.5">
         <rect x="20" y="20" width="360" height="520" />
         <line x1="20" y1="280" x2="380" y2="280" />
@@ -251,12 +255,13 @@ export function PitchDiagram({ className = "" }: { className?: string }) {
 
 export function MethodSteps() {
   return (
-    <ol className="frame grid gap-[1.5px] bg-ink sm:grid-cols-2 lg:grid-cols-4">
+    <Extruded>
+      <ol className="relative frame grid gap-[1.5px] bg-ink sm:grid-cols-2 lg:grid-cols-4">
       {methodSteps.map((s, i) => {
         const last = i === methodSteps.length - 1;
         return (
           <li key={s.n} className={`flex flex-col gap-3 px-6 py-7 ${last ? "bg-ob" : "bg-paper"}`}>
-            <span className="font-mono text-[12px] uppercase">
+            <span className="font-normal text-[12px] uppercase">
               {s.n} · {s.who}
             </span>
             <h3 className="display text-[26px] font-bold tracking-[-0.02em]">{s.title}</h3>
@@ -271,7 +276,8 @@ export function MethodSteps() {
           </li>
         );
       })}
-    </ol>
+      </ol>
+    </Extruded>
   );
 }
 
@@ -289,7 +295,7 @@ export function NotWeDoList() {
             <span className="sr-only">Non facciamo: </span>
             {n.what}
           </s>
-          <span className="shrink-0 font-mono text-[13px] font-normal tracking-normal">{n.why}</span>
+          <span className="shrink-0 text-[13px] text-body">{n.why}</span>
         </li>
       ))}
     </ul>
@@ -301,12 +307,12 @@ export function NotWeDoList() {
 function FlowStep({ n, title, meta, last = false, children }: { n: string; title: string; meta: string; last?: boolean; children: ReactNode }) {
   return (
     <li className="relative grid grid-cols-[36px_1fr] gap-x-4">
-      <span className="relative z-10 flex h-9 w-9 items-center justify-center bg-ink font-mono text-[13px] text-paper">{n}</span>
+      <span className="relative z-10 flex h-9 w-9 items-center justify-center bg-ink text-[13px] font-medium text-paper">{n}</span>
       {!last && <span aria-hidden="true" className="absolute bottom-0 left-[17px] top-9 w-[1.5px] bg-ink" />}
       <div className={last ? "" : "pb-6"}>
         <div className="flex min-h-9 flex-wrap items-baseline justify-between gap-x-3">
           <h3 className="display pt-1.5 text-[18px]">{title}</h3>
-          <span className="font-mono text-[11px] uppercase tracking-[0.06em]">{meta}</span>
+          <span className="text-[11px] font-normal uppercase tracking-[0.12em] text-body">{meta}</span>
         </div>
         <div className="mt-2.5">{children}</div>
       </div>
@@ -320,9 +326,9 @@ export function EvidenceFlow() {
       title="Dal colloquio al report"
       meta="Esempio"
       caption={
-        <span className="flex flex-wrap justify-between gap-2 font-mono text-[12px]">
+        <span className="flex flex-wrap justify-between gap-2 text-[12px] text-body">
           <span>Estratto illustrativo, anonimizzato</span>
-          <span>Firma: ✓ psicologo</span>
+          <span className="inline-flex items-center gap-1.5"><Check /> Firmato dallo psicologo</span>
         </span>
       }
     >
@@ -330,7 +336,7 @@ export function EvidenceFlow() {
         <FlowStep n="1" title="Lo psicologo ascolta un episodio" meta="Colloquio · 45 min">
           <blockquote className="border-l-[3px] border-ink bg-paper-2 px-4 py-3 text-[15px] leading-[1.75]">
             «Quando il collega si è ammalato <Said code="OB">ho coperto anche il suo turno, per tre settimane.</Said>{" "}
-            <Said code="PS">Non volevo che il reparto si fermasse.</Said> Alla fine <Said code="IP">nessuno se n&apos;è accorto.</Said>»
+            <Said code="PS">Non volevo che il reparto si fermasse.</Said> Alla fine <Said code="IP">nessuno se n’è accorto.</Said>»
           </blockquote>
         </FlowStep>
         <FlowStep n="2" title="L'AI trascrive e codifica ogni frase" meta="Codifica">
@@ -345,7 +351,7 @@ export function EvidenceFlow() {
               <li key={c} className="flex items-start gap-2.5">
                 <CodeTag code={c} className="mt-0.5 shrink-0 self-start" />
                 <span>
-                  <span className="font-mono text-[12px] uppercase">{k}</span> {v}
+                  <span className="font-medium">{k}.</span> {v}
                 </span>
               </li>
             ))}
@@ -372,50 +378,113 @@ export function EvidenceFlow() {
   );
 }
 
-/* ---------- Hero: una frase del colloquio diventa una conclusione firmata, poi una decisione ---------- */
+/* ---------- Hero: il flusso a step ---------- */
 
-export function HeroDiagram() {
+// Lastra estrusa: faccia frontale leggibile + due facce laterali solide (asse 45°),
+// per un minimo di profondità. `depth` regola lo spessore.
+function Slab({
+  tone = "paper",
+  depth = 6,
+  className = "",
+  children,
+}: {
+  tone?: "paper" | "ob";
+  depth?: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <Extruded depth={depth} className={className}>
+      <div className={`relative frame ${tone === "ob" ? "bg-ob" : "bg-paper"}`}>{children}</div>
+    </Extruded>
+  );
+}
+
+// Spunta della firma: icona vettoriale definita, non il glifo ascii.
+function Check({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" className={`h-3.5 w-3.5 ${className}`} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M3.5 8.5 L6.5 11.5 L12.5 4.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// Freccia-connettore fra due stadi del flusso.
+function FlowArrow({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <div aria-hidden="true" className={`flex items-center gap-3 py-3 ${className}`}>
+      <svg viewBox="0 0 24 40" className="h-8 w-5 shrink-0 overflow-visible" fill="none" stroke="var(--color-rule-dark)" strokeWidth="1.5">
+        <path d="M12 2 L12 32" />
+        <path d="M6 26 L12 34 L18 26" />
+      </svg>
+      <span className="text-[10px] font-normal uppercase leading-relaxed tracking-[0.12em] text-body">{label}</span>
+    </div>
+  );
+}
+
+// Il flusso a step: colloquio, codifica, report — tre card con connettori — e la
+// decisione sotto. Label sans leggere, spunta vettoriale, un minimo di profondità.
+export function HeroFlow() {
+  const evidenze: [Code, string, string][] = [
+    ["OB", "Fatto", "Doppio turno per tre settimane"],
+    ["PS", "Schema", "Si fa carico per non fermare il reparto"],
+    ["IP", "Ipotesi", "Il sovraccarico non viene segnalato"],
+  ];
   return (
     <figure
-      className="m-0"
-      aria-label="Esempio: una frase raccontata in colloquio diventa una conclusione del report, con la sua prova e la firma dello psicologo. Su quella base decidete voi."
+      className="m-0 pr-[10px]"
+      aria-label="Il flusso: una frase del colloquio viene codificata nei quattro codici (fatto, schema, ipotesi), diventa un report firmato con la sua prova, e infine una decisione."
     >
-      <div className="frame mr-[12%] bg-paper">
-        <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4.5 py-2.5 font-mono text-[11px] uppercase tracking-[0.06em]">
-          <span>Ascoltiamo · colloquio</span>
-          <span>Capo reparto · 45 min</span>
+      <Slab tone="paper" className="mr-[14%]">
+        <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4 py-2.5 text-[11px] font-normal uppercase tracking-[0.12em]">
+          <span>Colloquio</span>
+          <span className="text-body">45 min</span>
         </div>
-        <blockquote className="px-4.5 py-4.5 text-[16px] leading-[1.75]">
+        <blockquote className="px-4 py-3.5 text-[15px] leading-[1.7]">
           «Quando il collega si è ammalato <Said code="OB">ho coperto anche il suo turno, per tre settimane.</Said>{" "}
           <Said code="PS">Non volevo che il reparto si fermasse.</Said>»
         </blockquote>
-      </div>
+      </Slab>
 
-      <div className="flex items-stretch gap-3 py-1 pl-[calc(44%-1px)]" aria-hidden="true">
-        <span className="w-[1.5px] bg-ink" />
-        <span className="py-3 font-mono text-[11px] uppercase leading-relaxed tracking-[0.06em]">
-          lo psicologo legge
-          <br />
-          l&apos;AI trascrive e organizza
-        </span>
-      </div>
+      <FlowArrow label="L’AI trascrive, lo psicologo legge" className="pl-[16%]" />
 
-      <div className="frame ml-[12%] bg-ob">
-        <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4.5 py-2.5 font-mono text-[11px] uppercase tracking-[0.06em]">
-          <span>Restituiamo · report</span>
-          <span>✓ firmato</span>
+      <Slab tone="paper" className="mx-[7%]">
+        <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-4 py-2.5 text-[11px] font-normal uppercase tracking-[0.12em]">
+          <span>Codifica</span>
+          <span className="text-body">4 codici</span>
         </div>
-        <div className="px-4.5 py-4.5">
-          <p className="display text-[22px] leading-[1.2]">Funziona nel ruolo, se il carico viene redistribuito.</p>
-          <p className="mt-3 flex flex-wrap justify-between gap-2 font-mono text-[11px]">
+        <ul className="flex flex-col gap-2 px-4 py-3.5 text-[14px] leading-snug">
+          {evidenze.map(([c, k, v]) => (
+            <li key={c} className="flex items-start gap-2.5">
+              <CodeTag code={c} className="mt-0.5 shrink-0" />
+              <span>
+                <span className="font-medium">{k}.</span> {v}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Slab>
+
+      <FlowArrow label="Un’evidenza, una firma" className="pl-[16%]" />
+
+      <Slab tone="ob" className="ml-[14%]">
+        <div className="flex items-center justify-between gap-3 border-b-[1.5px] border-ink px-4 py-2.5 text-[11px] font-normal uppercase tracking-[0.12em]">
+          <span>Report</span>
+          <span className="inline-flex items-center gap-1.5">
+            <Check /> Firmato
+          </span>
+        </div>
+        <div className="px-4 py-3.5">
+          <p className="display text-[20px] leading-[1.2]">Funziona nel ruolo, se il carico viene redistribuito.</p>
+          <p className="mt-2.5 flex flex-wrap justify-between gap-2 text-[11px] text-body">
             <span>Prova: colloquio, min. 12</span>
-            <span>Dott. A. Gilli, psicologo</span>
+            <span>Dott. A. Gilli</span>
           </p>
         </div>
-      </div>
+      </Slab>
 
-      <div className="mt-5 flex flex-wrap items-center gap-2 pl-[12%] text-[13px]">
-        <span className="font-mono text-[11px] uppercase tracking-[0.06em]">Per decidere</span>
+      <div className="mt-9 flex flex-wrap items-center gap-2.5 text-[13px]">
+        <span className="text-[11px] font-normal uppercase tracking-[0.12em]">Per decidere</span>
         {["chi scegliere", "chi far crescere", "dove intervenire"].map((t) => (
           <span key={t} className="bg-primary px-2.5 py-1 font-medium text-paper">
             {t}
@@ -425,3 +494,4 @@ export function HeroDiagram() {
     </figure>
   );
 }
+

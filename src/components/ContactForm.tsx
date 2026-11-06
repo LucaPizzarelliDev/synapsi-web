@@ -6,7 +6,7 @@ import { contact } from "@/lib/site";
 const areas = ["Una persona nel ruolo (Viseria)", "Un manager (Prismia)", "L'organizzazione (Chimeria)", "Una rete commerciale (Iridium)", "Una società sportiva", "Non lo so ancora"];
 
 const field = "frame w-full bg-paper px-4 py-3.5 text-base placeholder:text-body/70";
-const label = "font-mono text-[12px] uppercase tracking-[0.06em]";
+const label = "font-normal text-[12px] uppercase tracking-[0.06em]";
 
 // Finché non c'è un servizio di invio, il modulo prepara una email nel client di posta dell'utente.
 export function ContactForm() {
@@ -15,7 +15,7 @@ export function ContactForm() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const subject = `Primo colloquio — ${data.get("org") || data.get("name")}`;
+    const subject = `Primo colloquio: ${data.get("org") || data.get("name")}`;
     const body = [
       `Nome: ${data.get("name")}`,
       `Organizzazione: ${data.get("org")}`,
@@ -29,7 +29,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="frame bg-paper">
-      <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-5 py-3 font-mono text-[12px] uppercase tracking-[0.06em]">
+      <div className="flex justify-between gap-3 border-b-[1.5px] border-ink px-5 py-3 font-normal text-[12px] uppercase tracking-[0.06em]">
         <span>Modulo · primo colloquio</span>
         <span>30 min</span>
       </div>

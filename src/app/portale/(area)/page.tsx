@@ -26,7 +26,7 @@ export default function PanoramicaPage() {
         <Stat label="Assessment in corso" value={active.length} note={`${delivered.length} già consegnati`} />
         <Stat label="Report disponibili" value={reports.length} note="Firmati dallo psicologo" />
         <Stat label="Colloqui svolti" value={interviewsDone} note="Dall'inizio del contratto" />
-        <Stat label="Prossimo colloquio" value={next ? formatDate(next.date).replace(/ \d{4}$/, "") : "—"} note={next?.person} />
+        <Stat label="Prossimo colloquio" value={next ? formatDate(next.date).replace(/ \d{4}$/, "") : "N/D"} note={next?.person} />
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[1.5fr_1fr]">

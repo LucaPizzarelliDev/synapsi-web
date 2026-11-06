@@ -20,7 +20,7 @@ export default function StudioPage() {
   return (
     <>
       <PageIntro
-        label="§ Studio"
+        label="Lo studio"
         title={
           <>
             Due psicologi. <Mark code="AC">Due specialisti AI.</Mark>
@@ -61,10 +61,10 @@ export default function StudioPage() {
           </div>
           <div className="flex flex-col gap-6 text-lg leading-relaxed text-body-dark">
             <p>
-              Lo strumento individuale, allora chiamato Hermia e oggi Viseria, è stato oggetto di una tesi discussa all&apos;Università Cattolica di Brescia, che ne ha studiato l&apos;applicazione in
-              un&apos;azienda reale. È la prima validazione esterna e accademica del metodo.
+              Lo strumento individuale, allora chiamato Hermia e oggi Viseria, è stato oggetto di una tesi discussa all’Università Cattolica di Brescia, che ne ha studiato l’applicazione in
+              un’azienda reale. È la prima validazione esterna e accademica del metodo.
             </p>
-            <p>La collaborazione prosegue con nuove tesi e studi di validazione, a partire dall&apos;accordo fra valutatori.</p>
+            <p>La collaborazione prosegue con nuove tesi e studi di validazione, a partire dall’accordo fra valutatori.</p>
           </div>
         </Container>
       </section>
