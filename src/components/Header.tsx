@@ -2,60 +2,65 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Logo } from "./Logo";
-import { nav, services } from "@/lib/site";
+import { Arrow } from "./ui";
+import type { SharedContent } from "@/content/shared";
+import { localeNames, locales, localize, switchLabels, unlocalize, type Locale } from "@/lib/i18n";
 
-export function Header() {
-  const pathname = usePathname();
+type Props = { lang: Locale; t: Pick<SharedContent, "header" | "services" | "nav"> };
+
+export function Header({ lang, t }: Props) {
+  const { header, services, nav } = t;
+  // Percorso senza lingua: confrontabile con gli href dei contenuti e riusabile per cambiare lingua
+  const pathname = unlocalize(usePathname());
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-  const onService = services.some((s) => s.href === pathname);
-
-  useEffect(() => {
-    if (!servicesOpen) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setServicesOpen(false);
-    const onClick = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setServicesOpen(false);
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onClick);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onClick);
-    };
-  }, [servicesOpen]);
-
-  const close = () => {
-    setOpen(false);
-    setServicesOpen(false);
-  };
-
   return (
-    <header ref={ref} className="sticky top-0 z-40 border-b-[1.5px] border-ink bg-paper">
-      <div className="mx-auto flex min-h-18 max-w-[1320px] items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
-        <Logo />
+    // Due livelli: in alto la notizia e i link di servizio, sotto i cinque servizi sempre in vista
+    <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_rgba(28,26,24,0.06)]">
+      <div className="bg-violet text-[13px] text-white">
+        <div className="mx-auto flex h-10 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-8">
+          <Link href={localize(lang, header.news.href)} className="flex min-w-0 items-center gap-2.5 hover:underline">
+            <span className="shrink-0 rounded-full bg-ob px-2 py-0.5 text-[12px] font-medium text-ink">{header.news.tag}</span>
+            <span className="truncate">{header.news.text}</span>
+            <Arrow className="h-3.5 w-3.5 shrink-0" />
+          </Link>
+          <span className="hidden items-center gap-1 sm:flex">
+            <LanguageLink lang={lang} pathname={pathname} className="inline-flex h-7 rounded-full px-2.5" />
+            <Link href="/portal/login" className="inline-flex h-7 items-center rounded-full px-2.5 text-white/85 hover:bg-white/10 hover:text-white">
+              {header.clientArea}
+            </Link>
+          </span>
+        </div>
+      </div>
 
-        <nav aria-label="Principale" className="hidden items-center gap-7 font-normal text-[13px] uppercase tracking-[0.06em] lg:flex">
-          <button
-            type="button"
-            aria-expanded={servicesOpen}
-            aria-controls="menu-servizi"
-            onClick={() => setServicesOpen((v) => !v)}
-            className={`inline-flex items-center gap-2 py-2.5 uppercase ${servicesOpen || onService ? "marker bg-ob" : "hover:bg-ob"}`}
-          >
-            Cosa facciamo
-            <svg viewBox="0 0 12 12" className={`h-2.5 w-2.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} aria-hidden="true">
-              <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-          </button>
-          {nav.map((item) => {
+      <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-6 px-4 sm:px-8">
+        <Logo href={localize(lang, "/")} size="lg" />
+
+        <nav aria-label={header.navLabel} className="hidden items-center gap-0.5 text-[14px] font-medium xl:flex">
+          {services.map((s, i) => {
+            const active = pathname === s.href;
+            return (
+              <Link
+                key={s.href}
+                href={localize(lang, s.href)}
+                aria-current={active ? "page" : undefined}
+                className={`inline-flex h-10 items-center gap-2 rounded-full px-3.5 transition-colors ${active ? "bg-cream text-ink" : "text-ink hover:bg-cream"}`}
+              >
+                <span className={`h-2.5 w-2.5 rounded-full ${tileBg[i]} ${active ? "ring-2 ring-violet/30" : ""}`} aria-hidden="true" />
+                {s.product}
+              </Link>
+            );
+          })}
+          <span className="mx-2 h-5 w-px bg-line" aria-hidden="true" />
+          {nav.filter((item) => item.inHeader).map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={localize(lang, item.href)}
                 aria-current={active ? "page" : undefined}
-                className={`py-2.5 ${active ? "marker bg-ob" : "hover:bg-ob"}`}
+                className={`inline-flex h-10 items-center rounded-full px-3.5 transition-colors ${active ? "bg-cream text-ink" : "text-body hover:bg-cream hover:text-ink"}`}
               >
                 {item.label}
               </Link>
@@ -64,69 +69,79 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/portale/accesso" className="hidden min-h-11.5 items-center px-3 font-normal text-[13px] uppercase tracking-[0.06em] hover:bg-ob xl:inline-flex">
-            Area clienti
-          </Link>
           <Link
-            href="/contatti"
-            className="hidden min-h-11.5 items-center gap-2.5 bg-primary px-5 text-[15px] font-medium text-paper transition-colors hover:bg-primary-dark sm:inline-flex"
+            href={localize(lang, "/contact")}
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-ink px-5 text-[14px] font-medium text-white transition-colors hover:bg-violet"
           >
-            Parliamone <span aria-hidden="true">→</span>
+            {header.cta}
+            <Arrow className="h-4 w-4" />
           </Link>
           <button
             type="button"
-            className="frame inline-flex h-11 w-11 items-center justify-center lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-cream xl:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
-            aria-label={open ? "Chiudi menu" : "Apri menu"}
+            aria-label={open ? header.closeMenu : header.openMenu}
             onClick={() => setOpen((v) => !v)}
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
             </svg>
           </button>
         </div>
       </div>
 
-      {servicesOpen && (
-        <div id="menu-servizi" className="absolute inset-x-0 top-full hidden border-b-[1.5px] border-ink bg-paper lg:block">
-          <ul className="mx-auto grid max-w-[1320px] grid-cols-5 px-10">
-            {services.map((s) => (
-              <li key={s.href} className="border-l-[1.5px] border-ink last:border-r-[1.5px]">
-                <Link href={s.href} onClick={close} className="group flex h-full flex-col gap-2 p-5 hover:bg-primary-soft">
-                  <span className="font-normal text-[12px] uppercase tracking-[0.06em] text-primary">{s.product}</span>
-                  <span className="display text-[22px]">{s.label}</span>
-                  <span className="text-[14px] leading-snug text-body">{s.need}</span>
-                  <span aria-hidden="true" className="mt-auto pt-2 text-primary transition-transform group-hover:translate-x-1">→</span>
+      {open && (
+        <nav id="menu-mobile" aria-label={header.navMobileLabel} className="anim-drop max-h-[calc(100svh-7rem)] overflow-y-auto border-t border-cream-2 bg-white px-4 pb-5 xl:hidden">
+          <p className="px-3 pb-2 pt-4 text-[13px] font-medium text-violet">{header.services}</p>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {services.map((s, i) => (
+              <li key={s.href}>
+                <Link href={localize(lang, s.href)} onClick={() => setOpen(false)} className={`flex items-center justify-between gap-4 rounded-2xl px-4 py-3 ${tileBg[i]}`}>
+                  <span className="display text-[20px]">{s.label}</span>
+                  <span className="text-[13px] font-medium text-ink/70">{s.product}</span>
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
-      )}
-
-      {open && (
-        <nav id="menu-mobile" aria-label="Principale mobile" className="border-t-[1.5px] border-ink lg:hidden">
-          <p className="border-b-[1.5px] border-ink px-4 pb-2 pt-4 font-normal text-[12px] uppercase tracking-[0.06em]">Cosa facciamo</p>
-          <ul>
-            {services.map((s) => (
-              <li key={s.href} className="border-b-[1.5px] border-ink">
-                <Link href={s.href} onClick={close} className="flex items-baseline justify-between gap-4 px-4 py-3.5 hover:bg-ob">
-                  <span className="display text-2xl">{s.label}</span>
-                  <span className="font-normal text-[12px] uppercase">{s.product}</span>
-                </Link>
-              </li>
-            ))}
-            {[...nav, { href: "/portale/accesso", label: "Area clienti" }].map((item) => (
-              <li key={item.href} className="border-b-[1.5px] border-ink last:border-b-0">
-                <Link href={item.href} onClick={close} className="flex px-4 py-3.5 font-normal text-[13px] uppercase tracking-[0.06em] hover:bg-ob">
+          <ul className="mt-3">
+            {[...nav.map((n) => ({ ...n, href: localize(lang, n.href) })), { href: "/portal/login", label: header.clientArea }].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} onClick={() => setOpen(false)} className="flex rounded-xl px-3 py-3 text-[16px] font-medium hover:bg-cream">
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <LanguageLink lang={lang} pathname={pathname} className="flex rounded-xl px-3 py-3 text-body hover:bg-cream sm:hidden" />
         </nav>
       )}
     </header>
+  );
+}
+
+// Un colore per servizio, come nelle tessere della home
+const tileBg = ["bg-ob", "bg-ps", "bg-ac", "bg-ip", "bg-sand"];
+
+/** Link alle altre lingue (oggi una sola): porta alla stessa pagina tradotta */
+function LanguageLink({ lang, pathname, className = "" }: { lang: Locale; pathname: string; className?: string }) {
+  return (
+    <>
+      {locales
+        .filter((l) => l !== lang)
+        .map((l) => (
+          <Link
+            key={l}
+            href={localize(l, pathname)}
+            hrefLang={l}
+            lang={l}
+            aria-label={switchLabels[l]}
+            title={localeNames[l]}
+            className={`items-center font-medium ${className}`}
+          >
+            {l.toUpperCase()}
+          </Link>
+        ))}
+    </>
   );
 }

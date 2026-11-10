@@ -9,6 +9,11 @@ export const icons = {
   check: "M5 12.5l4.5 4.5L19 7",
   clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7v5l3 2",
   lock: "M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3",
+  plus: "M12 5v14M5 12h14",
+  layers: "M12 3 3 8l9 5 9-5zM3 13l9 5 9-5",
+  shield: "M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z",
+  log: "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01",
+  external: "M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5",
 };
 
 export function Icon({ d, className = "h-[18px] w-[18px]" }: { d: string; className?: string }) {

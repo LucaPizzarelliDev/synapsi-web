@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { BrandMark } from "./ui";
 
-export function Logo({ size = "md" }: { size?: "md" | "lg"; inverted?: boolean }) {
+export function Logo({ size = "md", href = "/", light = false }: { size?: "md" | "lg"; href?: string; light?: boolean }) {
   return (
-    <Link href="/" aria-label="Synapsi Analytics, home" className="inline-flex items-baseline gap-2.5 hover:bg-transparent">
-      <span className={`logotype ${size === "lg" ? "text-[32px]" : "text-[26px]"}`}>[synapsi]</span>
-      <span className="font-mono text-[12px] uppercase tracking-[0.08em]">analytics</span>
+    <Link href={href} aria-label="Synapsi Analytics, home" className={`inline-flex items-center gap-2 ${light ? "text-white" : "text-ink"}`}>
+      <BrandMark className={size === "lg" ? "h-9 w-9" : "h-7 w-7"} />
+      <span className={`logotype ${size === "lg" ? "text-[28px]" : "text-[22px]"}`}>synapsi</span>
     </Link>
   );
 }

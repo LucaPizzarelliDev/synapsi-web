@@ -4,36 +4,40 @@ Concrete rules so UI, copy, and code match this repo instead of looking machine-
 When in doubt, open the referenced file and copy the existing pattern.
 
 ## UI / design
-The design system is already defined in `src/app/globals.css` and demonstrated in
-`src/app/(sito)/page.tsx` and `src/components/Header.tsx`. Stay inside it.
+The design system is defined in `src/app/globals.css` and demonstrated in
+`src/app/[lang]/page.tsx`, `src/components/ui.tsx` and `src/components/Header.tsx`. Stay inside it.
 
-- **Use the brand palette only.** Colors come from `@theme` tokens (`ink`, `paper`, `paper-2`,
-  `body`, `line`, `primary`, `primary-soft`, `ob`/`ps`/`ac`/`ip`). Never introduce new hex
-  values, and never use the stock "AI" indigo/violet/blue gradient. The one accent is
-  `--color-primary` (#4f3b9a), used flat — not as a gradient.
-- **No rounded cards.** This design uses `1.5px` ink hairline borders (`frame` utility, or
-  `border-ink`) and square corners. Do not add `rounded-*`, drop shadows, or glassmorphism.
+- **Use the brand palette only.** Colors come from `@theme` tokens (`ink`, `body`, `cream`,
+  `cream-2`, `sand`, `violet`, `violet-dark`, `night`, `lavender`, `line`, `ob`/`ps`/`ac`/`ip`).
+  Never introduce new hex values and never use gradients. The accent is `violet` (#4f3b9a), flat.
+- **Warm and rounded, not generic.** Page on `bg-cream`; tiles `rounded-[24px]`, large panels
+  `rounded-[28px]`, chips `rounded-full`, pill buttons via `Button`. Tiles are coloured with the
+  four evidence codes (plus `sand`) or white. No ink hairline borders, no glassmorphism; shadows
+  only, and lightly, on "document" mock-ups (`DocFrame`, report cards).
+- **Decoration must be on-theme.** No flowers, bursts, waves, contour lines, handwritten notes or
+  other generic stickers (the user rejected them). Graphics show pieces of the method: interview
+  fragments, code chips, the report, the signature, `ProductGlyph` per service. `DotGrid` is the
+  only texture, on dark panels.
 - **No emoji** anywhere — in titles, copy, or labels. Iconography is inline SVG only
-  (`src/components/portal/icons.tsx`, `src/components/graphics.tsx`); no icon library.
-- **No generic hero + three feature-cards with icons.** Sections are editorial: a mono
-  `§ NN —` label (`Section`), a fluid `display` headline, then content as bordered lists or
-  asymmetric grids mapping over `src/lib` data — see the `services` list on the homepage.
-- **Intentional typography.** Three chosen families (Schibsted display, Hanken body, Spline
-  mono) via `next/font`; fluid sizes with `clamp()`. Don't fall back to system fonts or a flat
-  type scale. Mono + uppercase + `tracking-[0.06em]` is the label voice.
-- **Asymmetry where it earns it.** Layouts use uneven grids (`grid-cols-[1.15fr_1fr_1fr_auto]`,
-  `flex-[1.2_1_520px]`), not everything centered in equal thirds.
-- Prefer composing `Container`/`Section`/`Display`/`Button`/`Mark` from `src/components/ui.tsx`
-  over bespoke wrappers.
+  (`src/components/portal/icons.tsx`, `src/components/graphics.tsx`, `ui.tsx`); no icon library.
+- **Section rhythm**: label + fluid `display` headline (`Heading`), then content as coloured tile
+  grids, white rounded lists (`divide-y divide-line`) or a dark `bg-night` panel — mapping over
+  `src/content` data. Alternate with a full-width `bg-cream-2` band; close pages with `CtaBand`.
+- **Intentional typography.** Gabarito display, Onest body, Spline mono only for data/codes/IDs,
+  via `next/font`; fluid sizes with `clamp()`. Labels: `text-[13px] font-semibold uppercase
+  tracking-[0.08em] text-violet` (`Section`).
+- **Asymmetry where it earns it.** Uneven grids (`lg:grid-cols-[1.25fr_1fr_1fr]`, mosaic tiles),
+  not everything centered in equal thirds.
+- Prefer composing the primitives in `src/components/ui.tsx` over bespoke wrappers.
 
 ## Copy / content
 - Match the existing voice: plain, concrete, slightly austere, in **Italian** — e.g. "fatti,
-  non opinioni", "ogni conclusione ha la sua prova". See `src/lib/site.ts` and the homepage.
+  non opinioni", "ogni conclusione ha la sua prova". See `src/content/shared.ts` and `src/content/home.ts` (Italian and English).
 - **No marketing filler** ("Unlock your potential", "Empower your team", "Rivoluziona…"). State
   what happens and what the client receives.
 - **No fake placeholder** text dressed up as real content, and no lorem ipsum. If real copy
   isn't known, ask — don't invent product claims.
-- Don't turn everything into bullet lists. Prose, bordered lists, and definition-style blocks
+- Don't turn everything into bullet lists. Prose, tile grids, and definition-style blocks
   are all used deliberately; pick what fits.
 
 ## Code

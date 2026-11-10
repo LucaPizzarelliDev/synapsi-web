@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { assessments, formatDate, psychologists, reports } from "@/lib/portal";
-import { DownloadLink, Initials, StageBadge, StageTrack } from "./ui";
+import { DownloadLink, Initials, StageBadge, StageTrack, surface } from "./ui";
 
 const filters = ["Tutti", "In corso", "Consegnati"] as const;
 
@@ -14,9 +14,9 @@ export function PeopleTable() {
   );
 
   return (
-    <section className="border-[1.5px] border-ink bg-paper">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b-[1.5px] border-ink px-5 py-3">
-        <div role="tablist" aria-label="Filtra assessment" className="flex gap-1 border-[1.5px] border-ink p-1">
+    <section className={`overflow-hidden ${surface}`}>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-3.5">
+        <div role="tablist" aria-label="Filtra assessment" className="flex gap-1 rounded-full bg-cream p-1">
           {filters.map((f) => (
             <button
               key={f}
@@ -24,7 +24,7 @@ export function PeopleTable() {
               type="button"
               aria-selected={filter === f}
               onClick={() => setFilter(f)}
-              className={`min-h-8 px-3 text-[14px] transition-colors ${filter === f ? "bg-ink font-medium text-paper" : "text-body hover:text-ink"}`}
+              className={`min-h-8 rounded-full px-3.5 text-[14px] transition-colors ${filter === f ? "bg-violet font-medium text-white" : "text-body hover:text-ink"}`}
             >
               {f}
             </button>
@@ -35,23 +35,23 @@ export function PeopleTable() {
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[820px] text-left text-[14px]">
-          <thead className="text-[12px] uppercase tracking-[0.06em] text-body">
-            <tr className="border-b-[1.5px] border-ink">
-              <th scope="col" className="px-5 py-3 font-medium">Persona</th>
-              <th scope="col" className="px-3 py-3 font-medium">Stato</th>
-              <th scope="col" className="w-[180px] px-3 py-3 font-medium">Avanzamento</th>
-              <th scope="col" className="px-3 py-3 font-medium">Psicologo</th>
-              <th scope="col" className="px-3 py-3 font-medium">Avvio</th>
-              <th scope="col" className="px-5 py-3 text-right font-medium">Report</th>
+          <thead className="text-[12px] font-medium text-body">
+            <tr className="border-b border-line">
+              <th scope="col" className="px-5 py-3 font-semibold">Persona</th>
+              <th scope="col" className="px-3 py-3 font-semibold">Stato</th>
+              <th scope="col" className="w-[180px] px-3 py-3 font-semibold">Avanzamento</th>
+              <th scope="col" className="px-3 py-3 font-semibold">Psicologo</th>
+              <th scope="col" className="px-3 py-3 font-semibold">Avvio</th>
+              <th scope="col" className="px-5 py-3 text-right font-semibold">Report</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-line">
             {rows.map((a) => {
               const report = reports.find((r) => r.assessmentId === a.id);
               return (
-                <tr key={a.id} className="hover:bg-paper-2">
+                <tr key={a.id} className="transition-colors hover:bg-cream">
                   <td className="px-5 py-3.5">
-                    <Link href={`/portale/persone/${a.id}`} className="flex items-center gap-3">
+                    <Link href={`/portal/people/${a.id}`} className="flex items-center gap-3">
                       <Initials name={a.name} />
                       <span>
                         <span className="block font-medium hover:underline">{a.name}</span>

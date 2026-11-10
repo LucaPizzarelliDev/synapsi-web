@@ -8,9 +8,9 @@ export function LoginForm() {
   const router = useRouter();
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    router.push("/portale");
+    router.push("/portal");
   }
-  const field = "h-11 w-full border-[1.5px] border-ink bg-paper px-3.5 text-[15px] placeholder:text-body/70";
+  const field = "h-12 w-full rounded-xl bg-white px-4 text-[15px] ring-1 ring-inset ring-ink/15 transition-shadow placeholder:text-body/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet";
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
       <div className="flex flex-col gap-1.5">
@@ -24,11 +24,11 @@ export function LoginForm() {
           <label htmlFor="password" className="text-[14px] font-medium">
             Password
           </label>
-          <span className="text-[13px] underline underline-offset-4">Password dimenticata?</span>
+          <span className="text-[13px] text-violet underline underline-offset-4">Password dimenticata?</span>
         </div>
         <input id="password" type="password" autoComplete="current-password" defaultValue="esempio-portale" className={field} />
       </div>
-      <button type="submit" className="mt-2 inline-flex h-11 items-center justify-center bg-primary text-[15px] font-medium text-paper transition-colors hover:bg-primary-dark">
+      <button type="submit" className="mt-2 inline-flex h-12 items-center justify-center rounded-full bg-violet text-[15px] font-medium text-white transition-colors hover:bg-violet-dark">
         Accedi
       </button>
       <p className="text-center text-[13px] text-body">Dopo la password vi chiederemo un codice inviato via email.</p>
