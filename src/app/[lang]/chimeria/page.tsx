@@ -80,7 +80,7 @@ export default async function ChimeriaPage() {
                 </p>
                 <ol className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {chimeriaCriteria.slice(g.from, g.to).map((c, i) => (
-                    <li key={c} className={`flex min-h-32 flex-col justify-between gap-5 rounded-[24px] p-5 ${g.bg}`}>
+                    <li key={c} className={`flex min-h-32 flex-col justify-between gap-5 rounded-2xl p-5 ${g.bg}`}>
                       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white font-mono text-[13px] font-medium">
                         {String(g.from + i + 1).padStart(2, "0")}
                       </span>
@@ -96,13 +96,13 @@ export default async function ChimeriaPage() {
 
       <section className="pt-20 sm:pt-28">
         <Container>
-          <div className="relative isolate overflow-hidden rounded-[28px] bg-night px-6 py-12 text-white sm:px-12 lg:py-16">
+          <div className="relative isolate overflow-hidden rounded-[20px] bg-night px-6 py-12 text-white sm:px-12 lg:py-16">
             <DotGrid className="text-white/[0.07]" />
             <Section dark>{t.lines.label}</Section>
             <h2 className="display mt-3 max-w-3xl text-balance text-[clamp(32px,4.2vw,48px)]">{t.lines.title}</h2>
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {t.lines.items.map((l) => (
-                <article key={l.name} className="flex flex-col gap-3 rounded-[24px] bg-white/[0.07] p-7 ring-1 ring-white/15">
+                <article key={l.name} className="flex flex-col gap-3 rounded-2xl bg-white/[0.07] p-7 ring-1 ring-white/15">
                   <span className="text-[13px] font-medium text-ob">{l.meta}</span>
                   <h3 className="display text-[30px]">{l.name}</h3>
                   <p className="leading-relaxed text-white/80">{l.text}</p>
@@ -147,7 +147,7 @@ export default async function ChimeriaPage() {
           </Heading>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {t.registers.items.map(([k, v], i) => (
-              <div key={k} className={`flex flex-col rounded-[24px] p-7 ${registerBg[i % registerBg.length]}`}>
+              <div key={k} className={`flex flex-col rounded-2xl p-7 ${registerBg[i % registerBg.length]}`}>
                 <span className="text-[13px] font-medium text-ink/70">
                   {t.registers.frame} {i + 1}
                 </span>

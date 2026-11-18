@@ -24,7 +24,7 @@ export function PeopleTable() {
               type="button"
               aria-selected={filter === f}
               onClick={() => setFilter(f)}
-              className={`min-h-8 rounded-full px-3.5 text-[14px] transition-colors ${filter === f ? "bg-violet font-medium text-white" : "text-body hover:text-ink"}`}
+              className={`min-h-8 rounded-lg px-3.5 text-[14px] transition-colors ${filter === f ? "bg-violet font-medium text-white" : "text-body hover:text-ink"}`}
             >
               {f}
             </button>

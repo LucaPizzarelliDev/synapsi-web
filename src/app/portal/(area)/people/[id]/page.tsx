@@ -37,7 +37,7 @@ export default async function PersonaPage({ params }: PageProps<"/portal/people/
 
   return (
     <>
-      <Link href="/portal/people" className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-white px-3.5 text-[14px] text-body transition-colors hover:text-ink">
+      <Link href="/portal/people" className="inline-flex min-h-9 items-center gap-1.5 rounded-lg bg-white px-3.5 text-[14px] text-body transition-colors hover:text-ink">
         <span aria-hidden="true">←</span> Persone
       </Link>
       <div className="mt-4">

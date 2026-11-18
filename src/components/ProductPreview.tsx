@@ -1,7 +1,6 @@
-import type { CSSProperties } from "react";
 import { graphics } from "@/content/graphics";
 import type { Locale } from "@/lib/i18n";
-import { BrandMark, Check, DotGrid } from "./ui";
+import { BrandMark, DotGrid } from "./ui";
 
 const avatar = ["bg-ob", "bg-ps", "bg-ac"];
 
@@ -12,7 +11,7 @@ export function ProductPreview({ lang = "it" }: { lang?: Locale }) {
     <figure
       role="img"
       aria-label={t.label}
-      className="m-0 overflow-hidden rounded-[24px] bg-white shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_40px_80px_-40px_rgba(34,26,66,0.45)]"
+      className="m-0 overflow-hidden rounded-2xl bg-white shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_40px_80px_-40px_rgba(34,26,66,0.45)]"
     >
       {/* Barra della finestra */}
       <div className="flex items-center gap-3 border-b border-line bg-cream/60 px-4 py-3">
@@ -41,16 +40,6 @@ export function ProductPreview({ lang = "it" }: { lang?: Locale }) {
 
         {/* Panoramica */}
         <div className="relative bg-snow p-5 sm:p-7">
-          {/* Notifica che entra ed esce: il portale si aggiorna da solo */}
-          <div className="anim-toast absolute right-5 top-5 z-10 hidden items-center gap-3 rounded-2xl bg-white py-2.5 pl-2.5 pr-4 shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_16px_32px_-16px_rgba(34,26,66,0.4)] sm:flex">
-            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-ac">
-              <Check />
-            </span>
-            <span>
-              <span className="block text-[13px] font-semibold">{t.toast[0]}</span>
-              <span className="block text-[12px] text-body">{t.toast[1]}</span>
-            </span>
-          </div>
           <p className="display text-[24px]">{t.hello}</p>
           <p className="mt-1 text-[13px] text-body">{t.lead}</p>
 
@@ -58,10 +47,7 @@ export function ProductPreview({ lang = "it" }: { lang?: Locale }) {
             <div className="relative isolate overflow-hidden rounded-2xl bg-night p-4 text-white">
               <DotGrid className="text-white/[0.07]" />
               <p className="flex items-center gap-2 text-[12px] text-white/70">
-                <span className="relative flex h-2 w-2">
-                  <span className="anim-ping absolute inline-flex h-full w-full rounded-full bg-ac" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-ac" />
-                </span>
+                <span className="h-2 w-2 rounded-full bg-ac" />
                 {t.next}
               </p>
               <p className="display mt-2 text-[26px] leading-none">{t.nextDate}</p>
@@ -98,7 +84,7 @@ export function ProductPreview({ lang = "it" }: { lang?: Locale }) {
                     <span className="flex gap-0.5">
                       {[0, 1, 2, 3, 4].map((k) => (
                         <span key={k} className="h-1 flex-1 overflow-hidden rounded-full bg-cream-2">
-                          {k < step && <span className="anim-grow block h-full bg-violet" style={{ "--d": `${700 + i * 150 + k * 90}ms` } as CSSProperties} />}
+                          {k < step && <span className="block h-full bg-violet" />}
                         </span>
                       ))}
                     </span>

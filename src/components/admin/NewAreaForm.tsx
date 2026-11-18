@@ -57,10 +57,10 @@ export function NewAreaForm() {
           Ambiente di esempio: l&apos;area non viene salvata finché non colleghiamo il database.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
-          <button type="button" onClick={() => setDone(false)} className="inline-flex min-h-10 items-center rounded-xl bg-white px-4 text-[14px] font-medium shadow-[0_0_0_1px_rgba(28,26,24,0.1)] hover:bg-cream">
+          <button type="button" onClick={() => setDone(false)} className="inline-flex min-h-10 items-center rounded-lg bg-white px-4 text-[14px] font-medium shadow-[0_0_0_1px_rgba(28,26,24,0.1)] hover:bg-cream">
             Crea un&apos;altra area
           </button>
-          <Link href="/admin/areas" className="inline-flex min-h-10 items-center rounded-xl bg-violet px-4 text-[14px] font-medium text-white hover:bg-violet-dark">
+          <Link href="/admin/areas" className="inline-flex min-h-10 items-center rounded-lg bg-violet px-4 text-[14px] font-medium text-white hover:bg-violet-dark">
             Torna alle aree
           </Link>
         </div>
@@ -121,12 +121,12 @@ export function NewAreaForm() {
           <button
             type="submit"
             disabled={chosen.length === 0}
-            className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-violet px-5 text-[15px] font-medium text-white transition-colors hover:bg-violet-dark disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-violet px-5 text-[15px] font-medium text-white transition-colors hover:bg-violet-dark disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Icon d={icons.plus} className="h-4 w-4" />
             Crea area
           </button>
-          <Link href="/admin/areas" className="inline-flex min-h-11 items-center rounded-xl px-4 text-[15px] text-body hover:bg-white">
+          <Link href="/admin/areas" className="inline-flex min-h-11 items-center rounded-lg px-4 text-[15px] text-body hover:bg-white">
             Annulla
           </Link>
         </div>
@@ -135,11 +135,11 @@ export function NewAreaForm() {
       {/* Anteprima: come il cliente vedrà la sua area nel portale */}
       <aside className="xl:sticky xl:top-20">
         <p className="pb-3 text-[13px] font-medium text-body">Cosa vedrà il cliente</p>
-        <div className="overflow-hidden rounded-[20px] bg-cream-2/70 shadow-[0_0_0_1px_rgba(28,26,24,0.06)]">
+        <div className="overflow-hidden rounded-2xl bg-cream-2/70 shadow-[0_0_0_1px_rgba(28,26,24,0.06)]">
           <div className="flex items-center gap-2 px-4 py-3">
             <BrandMark className="h-5 w-5" />
             <span className="logotype text-[15px]">synapsi</span>
-            <span className="ml-auto rounded-full bg-white px-2 py-0.5 text-[11px] text-body">Portale</span>
+            <span className="ml-auto rounded-md bg-white px-2 py-0.5 text-[11px] text-body">Portale</span>
           </div>
           <div className="mx-3 mb-3 rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(28,26,24,0.06)]">
             <p className="truncate text-[14px] font-medium">{clientName}</p>

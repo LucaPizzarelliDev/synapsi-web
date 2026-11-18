@@ -100,7 +100,6 @@ const it = {
       ["Luca Moretti", "Responsabile logistica", "Colloqui", 2],
     ] as [string, string, string, number][],
     signed: "Firmato",
-    toast: ["Report firmato", "Scouting Card · M. B."],
   },
 };
 
@@ -206,7 +205,6 @@ const en: GraphicsContent = {
       ["Luca Moretti", "Logistics manager", "Interviews", 2],
     ],
     signed: "Signed",
-    toast: ["Report signed", "Scouting Card · M. B."],
   },
 };
 

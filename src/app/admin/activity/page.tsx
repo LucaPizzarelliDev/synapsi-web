@@ -22,7 +22,7 @@ export default function RegistroPage() {
               <span className="w-28 shrink-0 text-[13px] text-body">{formatDate(e.date)}</span>
               {c && <CompanyMark short={c.short} />}
               <span className="min-w-0 flex-1">{e.text}</span>
-              <span className="rounded-full bg-cream px-2.5 py-0.5 text-[12px] text-body">{e.who}</span>
+              <span className="rounded-md bg-cream px-2.5 py-0.5 text-[12px] text-body">{e.who}</span>
             </li>
           );
         })}

@@ -28,7 +28,7 @@ export function AreaUsers({ areaName, initial, suspended }: { areaName: string; 
           <button
             type="button"
             onClick={() => setAdding(true)}
-            className="inline-flex min-h-9 items-center gap-1.5 rounded-xl bg-violet px-3.5 text-[14px] font-medium text-white transition-colors hover:bg-violet-dark"
+            className="inline-flex min-h-9 items-center gap-1.5 rounded-lg bg-violet px-3.5 text-[14px] font-medium text-white transition-colors hover:bg-violet-dark"
           >
             <Icon d={icons.plus} className="h-4 w-4" />
             Aggiungi utente
@@ -57,10 +57,10 @@ export function AreaUsers({ areaName, initial, suspended }: { areaName: string; 
             </label>
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <button type="submit" className="inline-flex min-h-9 items-center rounded-xl bg-violet px-3.5 text-[14px] font-medium text-white hover:bg-violet-dark">
+            <button type="submit" className="inline-flex min-h-9 items-center rounded-lg bg-violet px-3.5 text-[14px] font-medium text-white hover:bg-violet-dark">
               Crea utente e invia invito
             </button>
-            <button type="button" onClick={() => setAdding(false)} className="inline-flex min-h-9 items-center rounded-xl px-3.5 text-[14px] text-body hover:bg-white">
+            <button type="button" onClick={() => setAdding(false)} className="inline-flex min-h-9 items-center rounded-lg px-3.5 text-[14px] text-body hover:bg-white">
               Annulla
             </button>
           </div>
@@ -76,7 +76,7 @@ export function AreaUsers({ areaName, initial, suspended }: { areaName: string; 
                 <p className="text-[14px] font-medium">{u.name}</p>
                 <p className="truncate text-[13px] text-body">{u.email}</p>
               </div>
-              <span className="rounded-full bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{u.role}</span>
+              <span className="rounded-md bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{u.role}</span>
               <span className={`w-28 text-right text-[12px] ${u.last === "Mai" ? "font-medium text-ink" : "text-body"}`}>{u.last === "Mai" ? "Invito inviato" : u.last}</span>
             </li>
           ))}

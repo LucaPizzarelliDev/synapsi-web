@@ -42,7 +42,7 @@ export default async function StudioPage() {
           <h2 className="text-[14px] font-medium text-violet">{t.founders.label}</h2>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((p) => (
-              <li key={p.name} className="flex flex-col overflow-hidden rounded-[24px] bg-white">
+              <li key={p.name} className="flex flex-col overflow-hidden rounded-2xl bg-white">
                 <div className={`relative flex aspect-[4/5] items-center justify-center ${codeBg[p.code]}`}>
                   <span className="absolute left-4 top-4 rounded-full bg-white/80 px-3 py-1 text-[13px] font-medium">{p.tag}</span>
                   <span className="display flex h-28 w-28 items-center justify-center rounded-full bg-white/70 text-[40px]" aria-hidden="true">
@@ -61,7 +61,7 @@ export default async function StudioPage() {
       </section>
 
       <Container className="pt-20 sm:pt-28">
-        <section className="relative isolate grid gap-12 overflow-hidden rounded-[28px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20 lg:grid-cols-2">
+        <section className="relative isolate grid gap-12 overflow-hidden rounded-[20px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20 lg:grid-cols-2">
           <DotGrid className="text-white/[0.07]" />
           <div>
             <p className="text-[14px] font-medium text-ob">{t.research.label}</p>

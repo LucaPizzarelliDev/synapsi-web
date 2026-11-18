@@ -22,7 +22,7 @@ export default function ManagerPage() {
           const docs = reports.filter((r) => r.cycleId === c.id);
           const belowThreshold = c.sources.collaboratori[0] < 3;
           return (
-            <Card key={c.id} title={`Ciclo ${c.person} · ${c.role}`} action={<span className="rounded-full bg-lavender px-2.5 py-0.5 text-[12px] font-medium normal-case tracking-normal text-violet-dark">{psychologists[c.psychologist].short}</span>}>
+            <Card key={c.id} title={`Ciclo ${c.person} · ${c.role}`} action={<span className="rounded-md bg-lavender px-2.5 py-0.5 text-[12px] font-medium normal-case tracking-normal text-violet-dark">{psychologists[c.psychologist].short}</span>}>
               <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
                 <div>
                   <p className="text-[13px] font-medium text-violet">Fase: {c.stage}</p>

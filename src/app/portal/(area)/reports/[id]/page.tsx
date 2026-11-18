@@ -40,7 +40,7 @@ export default async function DocumentoPage({ params }: PageProps<"/portal/repor
         </Suspense>
       </div>
 
-      <article className="mx-auto max-w-[860px] overflow-hidden rounded-[28px] bg-white shadow-[0_24px_60px_-34px_rgba(34,26,66,0.4)] print:max-w-none print:overflow-visible print:rounded-none print:shadow-none">
+      <article className="mx-auto max-w-[860px] overflow-hidden rounded-[20px] bg-white shadow-[0_24px_60px_-34px_rgba(34,26,66,0.4)] print:max-w-none print:overflow-visible print:rounded-none print:shadow-none">
         <header className="flex flex-wrap items-start justify-between gap-4 border-b border-line px-8 py-6 sm:px-12">
           <Logo />
           <dl className="grid grid-cols-[auto_auto] gap-x-4 gap-y-0.5 text-[12px]">

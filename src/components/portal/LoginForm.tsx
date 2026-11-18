@@ -10,7 +10,7 @@ export function LoginForm() {
     e.preventDefault();
     router.push("/portal");
   }
-  const field = "h-12 w-full rounded-xl bg-white px-4 text-[15px] ring-1 ring-inset ring-ink/15 transition-shadow placeholder:text-body/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet";
+  const field = "h-12 w-full rounded-lg bg-white px-4 text-[15px] ring-1 ring-inset ring-ink/15 transition-shadow placeholder:text-body/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet";
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
       <div className="flex flex-col gap-1.5">

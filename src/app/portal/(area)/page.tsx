@@ -25,7 +25,7 @@ export default function PanoramicaPage() {
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-[1.45fr_1fr_1fr_1fr]">
         {/* In evidenza: la prossima cosa che succede */}
-        <section aria-label="Prossimo colloquio" className="relative isolate overflow-hidden rounded-[20px] bg-night p-5 text-white sm:col-span-2 xl:col-span-1">
+        <section aria-label="Prossimo colloquio" className="relative isolate overflow-hidden rounded-2xl bg-night p-5 text-white sm:col-span-2 xl:col-span-1">
           <DotGrid className="text-white/[0.07]" />
           <p className="flex items-center gap-2 text-[13px] font-medium text-white/70">
             <Icon d={icons.clock} className="h-4 w-4" />
@@ -81,7 +81,7 @@ export default function PanoramicaPage() {
           <ul className="divide-y divide-line">
             {latest.map((r) => (
               <li key={r.id} className="flex items-center gap-3 px-5 py-3.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cream text-violet">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lavender text-violet">
                   <Icon d={icons.doc} />
                 </span>
                 <Link href={`/portal/reports/${r.id}`} className="min-w-0 flex-1 hover:text-violet">
@@ -101,15 +101,15 @@ export default function PanoramicaPage() {
         <Card title="Check-up organizzativo">
           <p className="text-[13px] text-body">Ultimo consegnato</p>
           <p className="display mt-0.5 text-[20px]">{checkup.label}</p>
-          <dl className="mt-4 grid grid-cols-3 gap-3 text-center">
+          <dl className="mt-4 grid grid-cols-3 gap-3">
             {[
-              ["Reparti", checkup.departments],
-              ["Colloqui", checkup.interviews],
-              ["Criteri", 12],
-            ].map(([k, v]) => (
-              <div key={k} className="rounded-2xl bg-cream py-3.5">
-                <dt className="text-[12px] text-body">{k}</dt>
-                <dd className="display mt-0.5 text-[24px]">{v}</dd>
+              ["Reparti", checkup.departments, "bg-ob"],
+              ["Colloqui", checkup.interviews, "bg-ps"],
+              ["Criteri", 12, "bg-ac"],
+            ].map(([k, v, bg]) => (
+              <div key={k} className={`rounded-xl p-3.5 ${bg}`}>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/70">{k}</dt>
+                <dd className="display mt-3 text-[32px] leading-none">{v}</dd>
               </div>
             ))}
           </dl>

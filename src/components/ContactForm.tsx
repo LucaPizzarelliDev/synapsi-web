@@ -30,7 +30,7 @@ export function ContactForm({ t }: { t: ContattiContent["form"] }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-[28px] bg-cream-2 p-2 sm:p-3">
+    <form onSubmit={onSubmit} className="rounded-[20px] bg-cream-2 p-2 sm:p-3">
       <div className="flex justify-between gap-3 px-4 pb-3 pt-3 text-[14px] font-medium text-body sm:px-5">
         <span>{t.header}</span>
         <span className="rounded-full bg-white px-2.5 py-0.5 normal-case tracking-normal text-ink">{t.duration}</span>
@@ -62,7 +62,7 @@ export function ContactForm({ t }: { t: ContattiContent["form"] }) {
               {areas.map((a) => (
                 <label
                   key={a}
-                  className={`flex min-h-11 cursor-pointer items-center rounded-full px-4 text-[15px] transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-violet ${
+                  className={`flex min-h-11 cursor-pointer items-center rounded-lg px-4 text-[15px] transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-violet ${
                     area === a ? "bg-violet text-white" : "bg-white ring-1 ring-ink/15 hover:bg-lavender"
                   }`}
                 >
@@ -85,7 +85,7 @@ export function ContactForm({ t }: { t: ContattiContent["form"] }) {
         <p className="max-w-sm text-sm text-body">{t.help}</p>
         <button
           type="submit"
-          className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-violet px-6 font-medium text-white transition-colors hover:bg-violet-dark"
+          className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-violet px-6 font-medium text-white transition-colors hover:bg-violet-dark"
         >
           {t.submit}
           <Arrow className="h-4 w-4" />

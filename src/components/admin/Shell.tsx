@@ -31,7 +31,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
               href={item.href}
               onClick={onNavigate}
               aria-current={active ? "page" : undefined}
-              className={`flex min-h-10 items-center gap-3 rounded-xl px-3 text-[14px] transition-colors ${
+              className={`flex min-h-10 items-center gap-3 rounded-lg px-3 text-[14px] transition-colors ${
                 active ? "bg-white/[0.12] font-medium text-white" : "text-white/65 hover:bg-white/[0.06] hover:text-white"
               }`}
             >
@@ -54,7 +54,7 @@ function NewCompanyButton({ onNavigate }: { onNavigate?: () => void }) {
     <Link
       href="/admin/companies/new"
       onClick={onNavigate}
-      className="flex min-h-10 items-center justify-center gap-2 rounded-xl bg-ob text-[14px] font-medium text-ink transition-colors hover:bg-white"
+      className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-ob text-[14px] font-medium text-ink transition-colors hover:bg-white"
     >
       <Icon d={icons.plus} className="h-4 w-4" />
       Nuova azienda
@@ -74,7 +74,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
         <DotGrid className="text-white/[0.05]" />
         <div className="flex items-center justify-between px-1">
           <Logo href="/admin" light />
-          <span className="rounded-full bg-ip px-2.5 py-0.5 text-[12px] font-semibold text-ink">Console</span>
+          <span className="rounded-md bg-ip px-2 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-ink">Console</span>
         </div>
 
         <NewCompanyButton />
@@ -83,13 +83,13 @@ export function AdminShell({ children }: { children: ReactNode }) {
           <NavList />
         </nav>
 
-        <Link href="/portal" className="flex min-h-10 items-center gap-3 rounded-xl px-3 text-[14px] text-white/65 transition-colors hover:bg-white/[0.06] hover:text-white">
+        <Link href="/portal" className="flex min-h-10 items-center gap-3 rounded-lg px-3 text-[14px] text-white/65 transition-colors hover:bg-white/[0.06] hover:text-white">
           <Icon d={icons.external} className="h-[17px] w-[17px]" />
           Apri il portale clienti
         </Link>
 
-        <div className="flex items-center gap-3 rounded-2xl bg-white/[0.07] p-3">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ob text-[13px] font-semibold text-ink" aria-hidden="true">
+        <div className="flex items-center gap-3 rounded-xl bg-white/[0.07] p-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-ob text-[13px] font-semibold text-ink" aria-hidden="true">
             AG
           </span>
           <span className="min-w-0 flex-1">
@@ -104,7 +104,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
           <div className="flex min-w-0 items-center gap-3">
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-night text-white lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-night text-white lg:hidden"
               aria-expanded={open}
               aria-controls="console-menu"
               aria-label={open ? "Chiudi menu" : "Apri menu"}
@@ -113,17 +113,17 @@ export function AdminShell({ children }: { children: ReactNode }) {
               <Icon d={open ? "M6 6l12 12M18 6 6 18" : "M4 7h16M4 12h16M4 17h16"} />
             </button>
             <p className="flex min-w-0 items-center gap-2 truncate text-[14px]">
-              <span className="text-body">Console</span>
+              <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-body">Console</span>
               <span className="text-body/40" aria-hidden="true">/</span>
               <span className="font-medium">{section ?? "Console"}</span>
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="hidden items-center gap-1.5 rounded-full bg-ip px-2.5 py-1 text-[12px] font-medium text-ink sm:inline-flex">
+            <span className="hidden items-center gap-1.5 rounded-md bg-ip px-2.5 py-1 text-[12px] font-medium text-ink sm:inline-flex">
               <Icon d={icons.shield} className="h-3.5 w-3.5" />
               Superadmin
             </span>
-            <span className="hidden rounded-full bg-white px-2.5 py-1 text-[12px] text-body sm:inline">Dati di esempio</span>
+            <span className="hidden rounded-md bg-white px-2.5 py-1 text-[12px] text-body sm:inline">Dati di esempio</span>
           </div>
         </header>
 

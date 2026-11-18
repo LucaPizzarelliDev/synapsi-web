@@ -80,7 +80,7 @@ export default async function PrismiaPage() {
           </div>
           <ol className="grid gap-3">
             {prismiaDimensions.map((d) => (
-              <li key={d.id} className="flex items-center gap-5 rounded-[24px] bg-white px-6 py-5">
+              <li key={d.id} className="flex items-center gap-5 rounded-2xl bg-white px-6 py-5">
                 <span className="inline-flex h-10 min-w-10 shrink-0 items-center justify-center rounded-full bg-violet px-2.5 font-mono text-[13px] font-medium text-white">
                   {d.id}
                 </span>
@@ -93,14 +93,14 @@ export default async function PrismiaPage() {
 
       <section className="pt-20 sm:pt-28">
         <Container>
-          <div className="relative isolate grid gap-10 overflow-hidden rounded-[28px] bg-night px-6 py-12 text-white sm:px-12 lg:grid-cols-2 lg:items-end lg:py-16">
+          <div className="relative isolate grid gap-10 overflow-hidden rounded-[20px] bg-night px-6 py-12 text-white sm:px-12 lg:grid-cols-2 lg:items-end lg:py-16">
             <DotGrid className="text-white/[0.07]" />
             <div>
               <Section dark>{t.sources.label}</Section>
               <h2 className="display mt-3 text-balance text-[clamp(32px,4.2vw,48px)]">{t.sources.title}</h2>
               <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-white/80">{t.sources.text}</p>
             </div>
-            <div className="overflow-hidden rounded-[24px] bg-white text-ink">
+            <div className="overflow-hidden rounded-2xl bg-white text-ink">
               <table className="w-full text-left">
                 <caption className="sr-only">{t.sources.caption}</caption>
                 <tbody className="divide-y divide-line">
@@ -129,7 +129,7 @@ export default async function PrismiaPage() {
           </Heading>
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.card.pages.map(([n, title, d]) => (
-              <li key={n} className={`flex flex-col gap-3 rounded-[24px] p-6 ${n === "06" ? "bg-ob" : "bg-white"}`}>
+              <li key={n} className={`flex flex-col gap-3 rounded-2xl p-6 ${n === "06" ? "bg-ob" : "bg-white"}`}>
                 <span
                   className={`self-start rounded-full px-3 py-1 text-[13px] font-medium ${n === "06" ? "bg-white text-ink" : "bg-lavender text-violet-dark"}`}
                 >
@@ -156,7 +156,7 @@ export default async function PrismiaPage() {
           </div>
           <dl className="grid gap-3">
             {t.privacy.rules.map(([k, v]) => (
-              <div key={k} className="grid gap-1 rounded-[24px] bg-white p-6 sm:grid-cols-[160px_1fr] sm:gap-6">
+              <div key={k} className="grid gap-1 rounded-2xl bg-white p-6 sm:grid-cols-[160px_1fr] sm:gap-6">
                 <dt className="display text-[22px]">{k}</dt>
                 <dd className="leading-relaxed text-body">{v}</dd>
               </div>

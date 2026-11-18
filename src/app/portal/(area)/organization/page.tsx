@@ -57,7 +57,7 @@ export default function OrganizzazionePage() {
                     </span>
                     {p.area}
                   </span>
-                  <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-semibold text-ink ${p.level === "Sviluppo" ? "bg-ip" : "bg-ob"}`}>{p.level}</span>
+                  <span className={`rounded-md px-2.5 py-0.5 text-[12px] font-semibold text-ink ${p.level === "Sviluppo" ? "bg-ip" : "bg-ob"}`}>{p.level}</span>
                 </div>
                 <p className="mt-2 text-[15px] font-medium">{p.title}</p>
                 <p className="mt-1 text-[14px] leading-relaxed text-body">{p.text}</p>

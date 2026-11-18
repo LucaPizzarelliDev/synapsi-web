@@ -39,7 +39,7 @@ export default async function IridiumPage() {
         }
         lead={t.intro.lead}
         aside={
-          <div className="mx-auto flex aspect-square w-full max-w-[340px] items-center justify-center rounded-[28px] bg-ip">
+          <div className="mx-auto flex aspect-square w-full max-w-[340px] items-center justify-center rounded-[20px] bg-ip">
             <ProductGlyph product="Iridium" className="h-3/5 w-3/5 text-violet-dark/80" />
           </div>
         }
@@ -53,7 +53,7 @@ export default async function IridiumPage() {
           </div>
           <ol className="grid gap-4">
             {t.audience.levels.map((l, i) => (
-              <li key={l.n} className={`grid gap-3 rounded-[24px] p-6 sm:grid-cols-[48px_170px_1fr] sm:items-start sm:gap-6 ${levelBg[i % levelBg.length]}`}>
+              <li key={l.n} className={`grid gap-3 rounded-2xl p-6 sm:grid-cols-[48px_170px_1fr] sm:items-start sm:gap-6 ${levelBg[i % levelBg.length]}`}>
                 <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-violet text-[18px] text-white">{l.n}</span>
                 <span>
                   <span className="display block text-[24px]">{l.level}</span>
@@ -67,7 +67,7 @@ export default async function IridiumPage() {
       </section>
 
       <Container className="pt-20 sm:pt-28">
-        <section className="relative isolate overflow-hidden rounded-[28px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20">
+        <section className="relative isolate overflow-hidden rounded-[20px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20">
           <DotGrid className="text-white/[0.07]" />
           <p className="text-[14px] font-medium text-ob">{t.session.label}</p>
           <h2 className="display mt-3 max-w-3xl text-balance text-[clamp(32px,4.2vw,48px)]">{t.session.title}</h2>
@@ -110,7 +110,7 @@ export default async function IridiumPage() {
             <Heading label={t.access.label}>{t.access.title}</Heading>
             <p className="mt-5 text-[17px] leading-relaxed text-body">{t.access.text}</p>
           </div>
-          <dl className="divide-y divide-line overflow-hidden rounded-[24px] bg-white">
+          <dl className="divide-y divide-line overflow-hidden rounded-2xl bg-white">
             {t.access.rows.map(([k, v]) => (
               <div key={k} className="grid gap-1 px-6 py-5 sm:grid-cols-[200px_1fr] sm:gap-6">
                 <dt className="display text-[20px]">{k}</dt>

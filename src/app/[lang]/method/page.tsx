@@ -47,7 +47,7 @@ export default async function MetodoPage() {
           </Heading>
           <ol className="mt-12 grid gap-5 md:grid-cols-3">
             {t.architecture.layers.map(([id, title, d], i) => (
-              <li key={id} className={`flex flex-col rounded-[24px] p-7 ${layerBg[i % layerBg.length]}`}>
+              <li key={id} className={`flex flex-col rounded-2xl p-7 ${layerBg[i % layerBg.length]}`}>
                 <span className="inline-flex h-12 w-fit items-center rounded-full bg-white px-4 font-mono text-[15px] font-medium">{id}</span>
                 <h3 className="display mt-6 text-[24px]">{title}</h3>
                 <p className="mt-3 leading-relaxed text-ink/80">{d}</p>
@@ -59,7 +59,7 @@ export default async function MetodoPage() {
       </section>
 
       <Container className="pt-20 sm:pt-28">
-        <section className="relative isolate grid gap-12 overflow-hidden rounded-[28px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20 lg:grid-cols-[1fr_1.4fr]">
+        <section className="relative isolate grid gap-12 overflow-hidden rounded-[20px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20 lg:grid-cols-[1fr_1.4fr]">
           <DotGrid className="text-white/[0.07]" />
           <div>
             <p className="text-[14px] font-medium text-ob">{t.guarantees.label}</p>

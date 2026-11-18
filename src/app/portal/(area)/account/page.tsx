@@ -19,7 +19,7 @@ export default function AccountPage() {
                   <p className="text-[14px] font-medium">{u.name}</p>
                   <p className="truncate text-[13px] text-body">{u.email}</p>
                 </div>
-                <span className="rounded-full bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{u.role}</span>
+                <span className="rounded-md bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{u.role}</span>
                 <span className="w-24 text-right text-[12px] text-body">{u.last}</span>
               </li>
             ))}

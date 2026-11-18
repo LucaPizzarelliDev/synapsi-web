@@ -25,7 +25,7 @@ export default async function AziendaPage({ params }: PageProps<"/admin/companie
 
   return (
     <>
-      <Link href="/admin/companies" className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-white px-3.5 text-[14px] text-body transition-colors hover:text-ink">
+      <Link href="/admin/companies" className="inline-flex min-h-9 items-center gap-1.5 rounded-lg bg-white px-3.5 text-[14px] text-body transition-colors hover:text-ink">
         <Icon d="M19 12H5M11 18l-6-6 6-6" className="h-4 w-4" />
         Aziende
       </Link>
@@ -67,7 +67,7 @@ export default async function AziendaPage({ params }: PageProps<"/admin/companie
           <h2 className="pb-3 pt-8 text-[15px] font-semibold">Aree nel portale</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {c.areas.map((a) => (
-              <Link key={a.id} href={`/admin/areas/${a.id}`} className="block rounded-[20px] bg-white p-5 shadow-[0_0_0_1px_rgba(28,26,24,0.06)] transition-transform hover:-translate-y-0.5">
+              <Link key={a.id} href={`/admin/areas/${a.id}`} className="block rounded-2xl bg-white p-5 shadow-[0_0_0_1px_rgba(28,26,24,0.06)] transition-transform hover:-translate-y-0.5">
                 <span className="flex items-start justify-between gap-3">
                   <span>
                     <span className="display block text-[22px]">{a.name}</span>

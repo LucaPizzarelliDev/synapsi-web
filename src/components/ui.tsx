@@ -8,9 +8,19 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`mx-auto w-full max-w-[1240px] px-4 sm:px-8 ${className}`}>{children}</div>;
 }
 
-/** Etichetta di sezione: maiuscoletto viola su chiaro, giallo su scuro */
+/** Etichetta di sezione: i quattro punti del marchio, poi il maiuscoletto viola su chiaro, giallo su scuro */
 export function Section({ children, dark = false }: { n?: string; children: ReactNode; dark?: boolean }) {
-  return <p className={`text-[14px] font-medium ${dark ? "text-ob" : "text-violet"}`}>{children}</p>;
+  return (
+    <p className={`flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.08em] ${dark ? "text-ob" : "text-violet"}`}>
+      <span className="grid shrink-0 grid-cols-2 gap-[2px]" aria-hidden="true">
+        <span className="h-[5px] w-[5px] rounded-full bg-ob" />
+        <span className="h-[5px] w-[5px] rounded-full bg-ps" />
+        <span className="h-[5px] w-[5px] rounded-full bg-ac" />
+        <span className="h-[5px] w-[5px] rounded-full bg-ip" />
+      </span>
+      {children}
+    </p>
+  );
 }
 
 export function Display({
@@ -37,7 +47,34 @@ export function Heading({ label, children, className = "" }: { label?: ReactNode
 
 /** Evidenziatore con il colore di uno dei quattro codici */
 export function Mark({ code = "OB", children }: { code?: Code; children: ReactNode }) {
-  return <span className={`marker ${codeBg[code]}`}>{children}</span>;
+  return <span className={`marker text-ink ${codeBg[code]}`}>{children}</span>;
+}
+
+const hl: Record<Code, string> = {
+  OB: "[--hl:var(--color-ob)]",
+  PS: "[--hl:var(--color-ps)]",
+  AC: "[--hl:var(--color-ac)]",
+  IP: "[--hl:var(--color-ip)]",
+};
+
+/**
+ * Affermazione annotata come in un trascritto: sottolineata col colore del codice e con il codice in apice.
+ * Il sito fa quello che fa il metodo: ogni frase che conta porta la sua evidenza.
+ */
+export function Evidence({ code, name, dark = false, children }: { code: Code; name: string; dark?: boolean; children: ReactNode }) {
+  // Su fondo scuro l'evidenziatore coprirebbe il testo chiaro: diventa colore del testo e riga sottile sotto
+  const onDark = { OB: "text-ob", PS: "text-ps", AC: "text-ac", IP: "text-ip" }[code];
+  return (
+    <>
+      <span className={`underlight ${hl[code]} ${dark ? `${onDark} [background-position:0_100%] [background-size:100%_0.06em]` : ""}`}>{children}</span>
+      <abbr
+        title={name}
+        className={`relative -top-[0.75em] ml-[0.12em] inline-block rounded-[0.18em] px-[0.28em] py-[0.16em] align-baseline font-mono text-[max(12px,0.26em)] font-medium leading-none tracking-normal text-ink no-underline ${codeBg[code]}`}
+      >
+        {code}
+      </abbr>
+    </>
+  );
 }
 
 export function CodeTag({ code, className = "" }: { code: Code; className?: string }) {
@@ -45,16 +82,16 @@ export function CodeTag({ code, className = "" }: { code: Code; className?: stri
 }
 
 const pill = {
-  ink: "bg-violet text-white hover:bg-violet-dark",
+  ink: "bg-ink text-white hover:bg-violet-dark",
   solid: "bg-violet text-white hover:bg-violet-dark",
-  outline: "bg-white text-ink ring-1 ring-ink/15 hover:bg-cream-2",
+  outline: "bg-transparent text-ink ring-1 ring-inset ring-ink/25 hover:bg-ink/5",
   paper: "bg-white text-ink hover:bg-cream-2",
   soft: "bg-lavender text-violet-dark hover:bg-ps/70",
   ob: "bg-ob text-ink hover:bg-white",
-  ghost: "bg-white/10 text-white ring-1 ring-white/40 hover:bg-white/20",
+  ghost: "bg-transparent text-white ring-1 ring-inset ring-white/35 hover:bg-white/10",
 };
 
-/** Bottone a pillola. `ink` è il nome storico della variante principale */
+/** Bottone del sito: rettangolo con angoli contenuti */
 export function Button({
   href,
   children,
@@ -69,21 +106,27 @@ export function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-5 text-[15px] font-medium transition-colors ${pill[variant]} ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-6 text-[15px] font-medium transition-colors ${pill[variant]} ${className}`}
     >
       {children}
     </Link>
   );
 }
 
-/** Il marchio: quattro punti, uno per codice del metodo */
+/**
+ * Il marchio: una S fatta di due archi che non si toccano, come i due lati di una sinapsi
+ * (chi parla e chi ascolta). Il quadratino giallo è il codice in apice che il metodo mette
+ * accanto a ogni affermazione.
+ */
 export function BrandMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <circle cx="11" cy="11" r="8" className="fill-ob" />
-      <circle cx="29" cy="11" r="8" className="fill-ps" />
-      <circle cx="11" cy="29" r="8" className="fill-ac" />
-      <circle cx="29" cy="29" r="8" className="fill-ip" />
+      <rect width="40" height="40" rx="10" className="fill-violet" />
+      <g fill="none" className="stroke-white" strokeWidth="3.6" strokeLinecap="round">
+        <path d="M25.08 10.24A6.2 6.2 0 1 0 17.09 19.27" />
+        <path d="M22.91 20.73A6.2 6.2 0 1 1 14.92 29.76" />
+      </g>
+      <rect x="28.5" y="5.5" width="6" height="6" rx="1.6" className="fill-ob" />
     </svg>
   );
 }
@@ -133,7 +176,7 @@ export function DocFrame({
   className?: string;
 }) {
   return (
-    <figure className={`m-0 flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_16px_40px_-24px_rgba(34,26,66,0.3)] ${className}`}>
+    <figure className={`m-0 flex h-full flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_16px_40px_-24px_rgba(34,26,66,0.3)] ${className}`}>
       <div className="flex justify-between gap-3 border-b border-line px-5 py-3.5 text-[13px] font-medium text-body">
         <span>{title}</span>
         {meta && <span>{meta}</span>}
@@ -168,51 +211,67 @@ export function PageIntro({
   const labels = shared[lang].serviceLabels;
   return (
     <section>
-      <Container className="grid gap-12 pb-12 pt-14 sm:pt-20 lg:grid-cols-12 lg:items-center">
-        <div className={aside ? "lg:col-span-7" : "lg:col-span-10"}>
-          <div className="anim-rise">
-            <Section>{label}</Section>
+      <div className="relative isolate overflow-hidden bg-night text-white">
+        <DotGrid className="text-white/[0.06]" />
+        <Container className="grid gap-12 pb-16 pt-16 sm:pb-24 sm:pt-24 lg:grid-cols-12 lg:items-center">
+          <div className={aside ? "lg:col-span-7" : "lg:col-span-10"}>
+            <div className="anim-rise">
+              <Section dark>{label}</Section>
+            </div>
+            {/* Sul fondo scuro l'evidenziatore diventa colore del testo: più leggibile, meno pesante */}
+            <Display as="h1" className="anim-rise [--d:80ms] mt-6 text-[clamp(2.75rem,5.6vw,4.75rem)] [&_.marker]:bg-transparent [&_.marker]:p-0 [&_.marker]:text-ps">
+              {title}
+            </Display>
+            <p className="anim-rise [--d:160ms] mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">{lead}</p>
           </div>
-          <Display as="h1" className="anim-rise [--d:80ms] mt-5 text-[clamp(2.75rem,5.6vw,5rem)]">
-            {title}
-          </Display>
-          <p className="anim-rise [--d:160ms] mt-7 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">{lead}</p>
-        </div>
-        {aside && <div className="anim-rise [--d:260ms] lg:col-span-5">{aside}</div>}
-      </Container>
-      {service && (
-        <Container className="pb-8">
-          <dl className="grid gap-4 md:grid-cols-3">
-            {(
-              [
-                [labels.need, service.need, "bg-ob"],
-                [labels.what, service.what, "bg-ps"],
-                [labels.get, service.get, "bg-ac"],
-              ] as const
-            ).map(([k, v, bg]) => (
-              <div key={k} className={`reveal rounded-[24px] p-6 ${bg}`}>
-                <dt className="text-[14px] font-medium text-ink/70">{k}</dt>
-                <dd className="mt-2.5 text-[16px] leading-relaxed">{v}</dd>
-              </div>
-            ))}
-          </dl>
+          {aside && <div className="anim-rise [--d:260ms] lg:col-span-5">{aside}</div>}
         </Container>
+      </div>
+      {service && (
+        <div className="border-b border-line bg-white">
+          <Container>
+            <dl className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
+              {(
+                [
+                  [labels.need, service.need, "bg-ob", "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 5v5m0 3.5v.5"],
+                  [labels.what, service.what, "bg-ps", "M4 5h16v11H9l-5 4V5Zm4 5h8M8 13h5"],
+                  [labels.get, service.get, "bg-ac", "M7 3h7l5 5v13H7V3Zm7 0v5h5M10 13h6M10 17h4"],
+                ] as const
+              ).map(([k, v, bg, d]) => (
+                <div key={k} className="flex gap-5 py-8 md:px-8 md:first:pl-0 md:last:pr-0">
+                  <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${bg}`} aria-hidden="true">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5 text-violet-dark" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={d} />
+                    </svg>
+                  </span>
+                  <div>
+                    <dt className="text-[13px] font-semibold uppercase tracking-[0.08em] text-violet">{k}</dt>
+                    <dd className="mt-2.5 text-[16px] leading-relaxed">{v}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          </Container>
+        </div>
       )}
     </section>
   );
 }
 
-/** Chiusura delle pagine: riquadro viola con l'invito a contattarci */
+/** Chiusura delle pagine: riquadro scuro con l'invito a contattarci */
 export function CtaBand({ lang, title, button, label }: { lang: Locale; title?: string; button?: string; label?: string }) {
   const t = shared[lang].cta;
   return (
     <Container className="py-20 sm:py-28">
-      <div className="reveal relative isolate overflow-hidden rounded-[28px] bg-violet px-6 py-16 text-center text-white sm:py-24">
-        <DotGrid className="text-white/10" />
-        {label && <Section dark>{label}</Section>}
-        <p className={`display mx-auto max-w-[20ch] text-[clamp(30px,4.4vw,52px)] ${label ? "mt-3" : ""}`}>{title ?? t.title}</p>
-        <Button href={localize(lang, "/contact")} variant="paper" className="mt-9">
+      <div className="reveal relative isolate grid gap-8 overflow-hidden rounded-[20px] bg-night px-6 py-14 text-white sm:px-12 sm:py-16 lg:grid-cols-[1fr_auto] lg:items-end">
+        <DotGrid className="text-white/[0.06]" />
+        <div>
+          {label && <Section dark>{label}</Section>}
+          <p className={`display max-w-[22ch] text-[clamp(30px,4vw,48px)] ${label ? "mt-4" : ""}`}>{title ?? t.title}</p>
+        </div>
+        <Button href={localize(lang, "/contact")} variant="paper" className="justify-self-start">
           {button ?? t.button}
+          <Arrow className="h-4 w-4" />
         </Button>
       </div>
     </Container>

@@ -70,7 +70,6 @@ const it = {
     cta: "Parliamone",
     openMenu: "Apri menu",
     closeMenu: "Chiudi menu",
-    news: { tag: "Nuovo", text: "Sport: cerchiamo i primi club pilota", href: "/sport" },
   },
 
   footer: {
@@ -225,7 +224,6 @@ const en: SharedContent = {
     cta: "Let's talk",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    news: { tag: "New", text: "Sport: we are looking for our first pilot clubs", href: "/sport" },
   },
 
   footer: {

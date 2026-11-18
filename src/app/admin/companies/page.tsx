@@ -27,7 +27,7 @@ export default function AziendePage() {
           {dealStages.map((stage) => {
             const list = companies.filter((c) => c.deal.stage === stage);
             return (
-              <section key={stage} aria-label={stage} className="rounded-[20px] bg-cream-2/70 p-2.5">
+              <section key={stage} aria-label={stage} className="rounded-2xl bg-cream-2/70 p-2.5">
                 <h2 className="flex items-center justify-between px-1.5 pb-2.5 pt-1">
                   <DealBadge stage={stage} />
                   <span className="text-[13px] tabular-nums text-body">{list.length}</span>

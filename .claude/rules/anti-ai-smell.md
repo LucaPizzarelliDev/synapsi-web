@@ -10,20 +10,25 @@ The design system is defined in `src/app/globals.css` and demonstrated in
 - **Use the brand palette only.** Colors come from `@theme` tokens (`ink`, `body`, `cream`,
   `cream-2`, `sand`, `violet`, `violet-dark`, `night`, `lavender`, `line`, `ob`/`ps`/`ac`/`ip`).
   Never introduce new hex values and never use gradients. The accent is `violet` (#4f3b9a), flat.
-- **Warm and rounded, not generic.** Page on `bg-cream`; tiles `rounded-[24px]`, large panels
-  `rounded-[28px]`, chips `rounded-full`, pill buttons via `Button`. Tiles are coloured with the
+- **Warm and sober, not generic.** Page on `bg-cream`; tiles `rounded-2xl`, large panels
+  `rounded-[20px]`, buttons `rounded-lg` via `Button`; no playful motion (marquee, floating or
+  tilted cards, spinning glyphs, hover rotation). Tiles are coloured with the
   four evidence codes (plus `sand`) or white. No ink hairline borders, no glassmorphism; shadows
   only, and lightly, on "document" mock-ups (`DocFrame`, report cards).
 - **Decoration must be on-theme.** No flowers, bursts, waves, contour lines, handwritten notes or
   other generic stickers (the user rejected them). Graphics show pieces of the method: interview
   fragments, code chips, the report, the signature, `ProductGlyph` per service. `DotGrid` is the
   only texture, on dark panels.
+- **The site's signature is annotation.** Like the method, key statements carry their evidence
+  code: `Evidence` (`ui.tsx`) underlines a phrase in the code colour with the code in superscript.
+  Use it sparingly (one per heading at most, only where the code fits the meaning), and keep the
+  four-dot brand mark in `Section` labels.
 - **No emoji** anywhere — in titles, copy, or labels. Iconography is inline SVG only
   (`src/components/portal/icons.tsx`, `src/components/graphics.tsx`, `ui.tsx`); no icon library.
 - **Section rhythm**: label + fluid `display` headline (`Heading`), then content as coloured tile
   grids, white rounded lists (`divide-y divide-line`) or a dark `bg-night` panel — mapping over
   `src/content` data. Alternate with a full-width `bg-cream-2` band; close pages with `CtaBand`.
-- **Intentional typography.** Gabarito display, Onest body, Spline mono only for data/codes/IDs,
+- **Intentional typography.** Schibsted Grotesk display, Onest body, Spline mono only for data/codes/IDs,
   via `next/font`; fluid sizes with `clamp()`. Labels: `text-[13px] font-semibold uppercase
   tracking-[0.08em] text-violet` (`Section`).
 - **Asymmetry where it earns it.** Uneven grids (`lg:grid-cols-[1.25fr_1fr_1fr]`, mosaic tiles),

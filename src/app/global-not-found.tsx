@@ -25,7 +25,7 @@ export default function GlobalNotFound() {
               Torna alla home
             </Link>
           </div>
-          <div lang="en" className="rounded-[24px] bg-white p-8">
+          <div lang="en" className="rounded-2xl bg-white p-8">
             <p className="text-[14px] font-medium text-violet">Error 404</p>
             <p className="display mt-5 text-[clamp(1.75rem,3vw,2.5rem)]">
               This page <span className="marker bg-ip">isn&apos;t in the transcript.</span>

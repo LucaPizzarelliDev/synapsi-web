@@ -1,3 +1,5 @@
+import type { Code } from "@/lib/site";
+
 const it = {
   meta: {
     description:
@@ -5,11 +7,24 @@ const it = {
   },
   hero: {
     kicker: "Psicologi del lavoro + intelligenza artificiale · Brescia",
-    title: { before: "Vi aiutiamo a capire ", mark: "come lavorano davvero", after: " le vostre persone." },
+    title: { before: "Vi aiutiamo a capire ", mark: "come lavorano davvero", code: "AC" as Code, after: " le vostre persone." },
     lead: "Valutiamo persone, manager e organizzazioni con colloqui condotti da psicologi. Vi consegniamo un report chiaro e firmato, per decidere chi scegliere, chi far crescere e dove intervenire.",
     primary: "Parliamo del vostro caso",
     secondary: "Cosa possiamo fare per voi",
   },
+  manifesto: {
+    label: "Il principio da cui partiamo",
+    before: "Un questionario vi dà un numero. ",
+    mark: "Un colloquio vi dice perché.",
+    code: "PS" as Code,
+    note: "In questo sito, come nei nostri report, le affermazioni che contano portano il loro codice di evidenza.",
+  },
+  facts: [
+    ["45–60", "minuti di colloquio per persona, su episodi reali di lavoro"],
+    ["4", "codici di evidenza per ogni frase: osservabile, schema, competenza, ipotesi"],
+    ["7", "fattori letti nella Scouting Card di Viseria"],
+    ["12", "aree dell'organizzazione lette da Chimeria"],
+  ],
   services: {
     label: "Cosa possiamo fare per voi",
     title: "Partite dalla vostra domanda.",
@@ -22,6 +37,7 @@ const it = {
     label: "Cosa ricevete",
     title: "Un report che si legge in cinque minuti.",
     text: "Ogni conclusione ha accanto l’episodio da cui nasce. Lo firma uno psicologo iscritto all’Albo, poi ne parliamo insieme a voce.",
+    portal: "Nell'area clienti vedete a che punto sono i colloqui e trovate i report firmati, persona per persona.",
   },
   how: {
     label: "Come funziona",
@@ -34,7 +50,7 @@ const it = {
   },
   trust: {
     label: "Perché fidarvi",
-    title: "Non vi diamo un punteggio. Vi diamo le prove.",
+    title: { before: "Non vi diamo un punteggio. ", mark: "Vi diamo le prove.", code: "OB" as Code },
     reasons: [
       ["Fatti, non opinioni", "Chiediamo cosa è successo, non cosa la persona pensa di sé. Un questionario vi dà un numero, un colloquio vi dice perché."],
       ["Ogni conclusione ha la sua prova", "Nel report, accanto a ogni giudizio, c'è l'episodio da cui nasce. Potete sempre verificare."],
@@ -62,11 +78,24 @@ const en: HomeContent = {
   },
   hero: {
     kicker: "Work psychologists + artificial intelligence · Brescia",
-    title: { before: "We help you understand ", mark: "how your people really work.", after: "" },
+    title: { before: "We help you understand ", mark: "how your people really work.", code: "AC", after: "" },
     lead: "We assess people, managers and organisations through interviews led by psychologists. You receive a clear, signed report to decide who to choose, who to develop and where to act.",
     primary: "Tell us about your case",
     secondary: "What we can do for you",
   },
+  manifesto: {
+    label: "The principle we start from",
+    before: "A questionnaire gives you a number. ",
+    mark: "An interview tells you why.",
+    code: "PS",
+    note: "On this site, as in our reports, the statements that matter carry their evidence code.",
+  },
+  facts: [
+    ["45–60", "minutes of interview per person, about real work episodes"],
+    ["4", "evidence codes for every sentence: observable, pattern, competence, hypothesis"],
+    ["7", "factors read in the Viseria Scouting Card"],
+    ["12", "areas of the organisation read by Chimeria"],
+  ],
   services: {
     label: "What we can do for you",
     title: "Start from your question.",
@@ -79,6 +108,7 @@ const en: HomeContent = {
     label: "What you receive",
     title: "A report you can read in five minutes.",
     text: "Every conclusion sits next to the episode it comes from. It is signed by a registered psychologist, then we talk it through with you.",
+    portal: "In the client area you see where each interview stands and find the signed reports, person by person.",
   },
   how: {
     label: "How it works",
@@ -91,7 +121,7 @@ const en: HomeContent = {
   },
   trust: {
     label: "Why trust us",
-    title: "We don't give you a score. We give you the evidence.",
+    title: { before: "We don't give you a score. ", mark: "We give you the evidence.", code: "OB" },
     reasons: [
       ["Facts, not opinions", "We ask what happened, not what people think of themselves. A questionnaire gives you a number, an interview tells you why."],
       ["Every conclusion has its proof", "In the report, next to every judgement, is the episode it comes from. You can always check."],

@@ -40,7 +40,7 @@ export default async function SportPage() {
 
       <section className="pt-20 sm:pt-28">
         <Container className="grid gap-5 lg:grid-cols-2">
-          <article className="flex flex-col rounded-[28px] bg-ob p-7 sm:p-10">
+          <article className="flex flex-col rounded-[20px] bg-ob p-7 sm:p-10">
             <div className="flex items-start justify-between gap-4">
               <p className="text-[14px] font-medium text-ink/70">
                 {t.viseria.frameTitle} · {t.viseria.frameMeta}
@@ -54,7 +54,7 @@ export default async function SportPage() {
               {t.viseria.after}
             </p>
           </article>
-          <article className="flex flex-col rounded-[28px] bg-ac p-7 sm:p-10">
+          <article className="flex flex-col rounded-[20px] bg-ac p-7 sm:p-10">
             <div className="flex items-start justify-between gap-4">
               <p className="text-[14px] font-medium text-ink/70">
                 {t.chimeria.frameTitle} · {t.chimeria.frameMeta}
@@ -77,7 +77,7 @@ export default async function SportPage() {
           </Heading>
           <ol className="mt-12 grid gap-5 md:grid-cols-3">
             {t.readings.items.map((r, i) => (
-              <li key={r.title} className="flex flex-col rounded-[24px] bg-white p-7">
+              <li key={r.title} className="flex flex-col rounded-2xl bg-white p-7">
                 <span className={`display flex h-12 w-12 items-center justify-center rounded-full text-[20px] ${readingBg[i % readingBg.length]}`}>{i + 1}</span>
                 <h3 className="display mt-6 text-[24px]">{r.title}</h3>
                 <p className="mt-3 leading-relaxed text-body">{r.text}</p>
@@ -102,7 +102,7 @@ export default async function SportPage() {
       </section>
 
       <Container className="pt-20 sm:pt-28">
-        <section className="relative isolate overflow-hidden rounded-[28px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20">
+        <section className="relative isolate overflow-hidden rounded-[20px] bg-night px-6 py-14 text-white sm:px-12 sm:py-20">
           <DotGrid className="text-white/[0.07]" />
           <p className="text-[14px] font-medium text-ob">{t.steps.label}</p>
           <h2 className="display mt-3 max-w-3xl text-balance text-[clamp(32px,4.2vw,48px)]">{t.steps.title}</h2>

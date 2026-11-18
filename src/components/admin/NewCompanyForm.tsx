@@ -35,10 +35,10 @@ export function NewCompanyForm() {
         </p>
         <p className="mt-4 max-w-xl rounded-2xl bg-ob/60 px-4 py-3 text-[14px]">Ambiente di esempio: l&apos;azienda non viene salvata finché non colleghiamo il database.</p>
         <div className="mt-6 flex flex-wrap gap-2">
-          <button type="button" onClick={() => setDone(false)} className="inline-flex min-h-10 items-center rounded-xl bg-white px-4 text-[14px] font-medium shadow-[0_0_0_1px_rgba(28,26,24,0.1)] hover:bg-cream">
+          <button type="button" onClick={() => setDone(false)} className="inline-flex min-h-10 items-center rounded-lg bg-white px-4 text-[14px] font-medium shadow-[0_0_0_1px_rgba(28,26,24,0.1)] hover:bg-cream">
             Aggiungi un&apos;altra azienda
           </button>
-          <Link href="/admin/companies" className="inline-flex min-h-10 items-center rounded-xl bg-violet px-4 text-[14px] font-medium text-white hover:bg-violet-dark">
+          <Link href="/admin/companies" className="inline-flex min-h-10 items-center rounded-lg bg-violet px-4 text-[14px] font-medium text-white hover:bg-violet-dark">
             Torna alle aziende
           </Link>
         </div>
@@ -93,7 +93,7 @@ export function NewCompanyForm() {
         <p className="text-[14px] font-medium">Fase</p>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {startStages.map((s) => (
-            <label key={s} className={`inline-flex min-h-9 cursor-pointer items-center rounded-full px-3.5 text-[13px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet ${stage === s ? dealStyle[s] + " ring-2 ring-ink/15" : "bg-cream text-body hover:bg-cream-2"}`}>
+            <label key={s} className={`inline-flex min-h-9 cursor-pointer items-center rounded-lg px-3.5 text-[13px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet ${stage === s ? dealStyle[s] + " ring-2 ring-ink/15" : "bg-cream text-body hover:bg-cream-2"}`}>
               <input type="radio" name="stage" checked={stage === s} onChange={() => setStage(s)} className="sr-only" />
               {s}
             </label>
@@ -104,7 +104,7 @@ export function NewCompanyForm() {
           {products.map((p) => {
             const on = interest.includes(p);
             return (
-              <label key={p} className={`inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-full px-3.5 text-[13px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet ${on ? productBg[p] : "bg-cream text-body hover:bg-cream-2"}`}>
+              <label key={p} className={`inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-lg px-3.5 text-[13px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet ${on ? productBg[p] : "bg-cream text-body hover:bg-cream-2"}`}>
                 <input type="checkbox" checked={on} onChange={() => toggle(p)} className="sr-only" />
                 {on && <Icon d={icons.check} className="h-3.5 w-3.5" />}
                 {p}
@@ -119,11 +119,11 @@ export function NewCompanyForm() {
       </fieldset>
 
       <div className="flex flex-wrap items-center gap-3">
-        <button type="submit" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-violet px-5 text-[15px] font-medium text-white transition-colors hover:bg-violet-dark">
+        <button type="submit" className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-violet px-5 text-[15px] font-medium text-white transition-colors hover:bg-violet-dark">
           <Icon d={icons.plus} className="h-4 w-4" />
           Crea azienda
         </button>
-        <Link href="/admin/companies" className="inline-flex min-h-11 items-center rounded-xl px-4 text-[15px] text-body hover:bg-white">
+        <Link href="/admin/companies" className="inline-flex min-h-11 items-center rounded-lg px-4 text-[15px] text-body hover:bg-white">
           Annulla
         </Link>
       </div>

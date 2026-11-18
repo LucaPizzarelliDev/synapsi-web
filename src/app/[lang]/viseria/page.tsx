@@ -59,7 +59,7 @@ export default async function ViseriaPage() {
           </div>
           <ol className="grid gap-4 sm:grid-cols-2">
             {viseriaFactors.map((f) => (
-              <li key={f.id} className="flex flex-col rounded-[24px] bg-white p-6">
+              <li key={f.id} className="flex flex-col rounded-2xl bg-white p-6">
                 <span className="inline-flex h-9 min-w-9 items-center justify-center self-start rounded-full bg-violet px-2.5 font-mono text-[13px] font-medium text-white">
                   {f.id}
                 </span>
@@ -77,7 +77,7 @@ export default async function ViseriaPage() {
 
       <section className="pt-20 sm:pt-28">
         <Container>
-          <div className="relative isolate grid gap-10 overflow-hidden rounded-[28px] bg-night px-6 py-12 text-white sm:px-12 lg:grid-cols-2 lg:items-end lg:py-16">
+          <div className="relative isolate grid gap-10 overflow-hidden rounded-[20px] bg-night px-6 py-12 text-white sm:px-12 lg:grid-cols-2 lg:items-end lg:py-16">
             <DotGrid className="text-white/[0.07]" />
             <div>
               <Section dark>{t.sustainability.label}</Section>
@@ -115,7 +115,7 @@ export default async function ViseriaPage() {
           </div>
           <dl className="mt-5 grid gap-4 sm:grid-cols-2">
             {t.collection.rules.map(([k, d]) => (
-              <div key={k} className="rounded-[24px] bg-cream-2 p-6">
+              <div key={k} className="rounded-2xl bg-cream-2 p-6">
                 <dt className="display text-[22px]">{k}</dt>
                 <dd className="mt-2 leading-relaxed text-body">{d}</dd>
               </div>
@@ -133,7 +133,7 @@ export default async function ViseriaPage() {
               {t.deliverable.title.after}
             </Heading>
             <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-body">{t.deliverable.text}</p>
-            <dl className="mt-8 divide-y divide-line overflow-hidden rounded-[24px] bg-white">
+            <dl className="mt-8 divide-y divide-line overflow-hidden rounded-2xl bg-white">
               {t.deliverable.scale.map(([n, l]) => (
                 <div key={n} className="flex items-center gap-4 px-5 py-3">
                   <dt className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lavender font-mono text-[13px] font-medium text-violet-dark">
@@ -171,7 +171,7 @@ export default async function ViseriaPage() {
           </Heading>
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.uses.items.map((u, i) => (
-              <li key={u} className={`flex flex-col gap-5 rounded-[24px] p-6 ${tileBg[i % tileBg.length]}`}>
+              <li key={u} className={`flex flex-col gap-5 rounded-2xl p-6 ${tileBg[i % tileBg.length]}`}>
                 <span className="display flex h-10 w-10 items-center justify-center rounded-full bg-white text-[17px]">{i + 1}</span>
                 <p className="text-[17px] leading-snug">{u}</p>
               </li>

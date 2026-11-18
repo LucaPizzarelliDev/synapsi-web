@@ -1,18 +1,20 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Section } from "@/components/ui";
 import { stages, type Stage } from "@/lib/portal";
 import { Icon, icons } from "./icons";
 
 /** Bordo e ombra dei riquadri del portale: leggeri, da strumento di lavoro */
-export const surface = "rounded-[20px] bg-white shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_1px_3px_rgba(28,26,24,0.04)]";
+export const surface = "rounded-2xl bg-white shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_1px_3px_rgba(28,26,24,0.04)]";
 
 export function PageHeader({ eyebrow, title, lead, actions }: { eyebrow?: string; title: string; lead?: ReactNode; actions?: ReactNode }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-4 pb-8">
+    // Stessa testata delle sezioni del sito: i quattro punti, il maiuscoletto, il titolo nel carattere display
+    <div className="flex flex-wrap items-end justify-between gap-4 pb-9">
       <div className="min-w-0">
-        {eyebrow && <p className="text-[13px] font-medium text-violet">{eyebrow}</p>}
-        <h1 className="display mt-1.5 text-[clamp(1.75rem,2.6vw,2.25rem)]">{title}</h1>
-        {lead && <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-body">{lead}</p>}
+        {eyebrow && <Section>{eyebrow}</Section>}
+        <h1 className="display mt-3 text-[clamp(2rem,3vw,2.75rem)]">{title}</h1>
+        {lead && <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-body">{lead}</p>}
       </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>
@@ -24,7 +26,7 @@ export function Card({ title, action, children, className = "", flush = false }:
     <section className={`overflow-hidden ${surface} ${className}`}>
       {title && (
         <div className="flex items-center justify-between gap-3 px-5 pb-1 pt-4">
-          <h2 className="text-[15px] font-semibold">{title}</h2>
+          <h2 className="display text-[18px]">{title}</h2>
           {action}
         </div>
       )}
@@ -36,24 +38,24 @@ export function Card({ title, action, children, className = "", flush = false }:
 /** Link discreto nella testata di un riquadro ("Vedi tutti") */
 export function CardLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <Link href={href} className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[13px] font-medium text-violet hover:bg-lavender">
+    <Link href={href} className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[13px] font-semibold text-violet hover:bg-lavender">
       {children}
       <Icon d={icons.arrow} className="h-3.5 w-3.5" />
     </Link>
   );
 }
 
-/** Numero chiave. `tone` è il colore del codice che fa da bollino all'icona */
+/** Numero chiave, come le cifre della home del sito. `tone` è il colore del codice che fa da bollino all'icona */
 export function Stat({ label, value, note, tone = "bg-lavender", icon }: { label: string; value: ReactNode; note?: string; tone?: string; icon?: string }) {
   return (
-    <div className={`${surface} p-5`}>
-      <div className="flex items-center gap-2.5">
-        <span className={`flex h-8 w-8 items-center justify-center rounded-xl text-ink ${tone}`}>
+    <div className={`${surface} flex flex-col p-5`}>
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-body">{label}</p>
+        <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-ink ${tone}`}>
           <Icon d={icon ?? icons.check} className="h-4 w-4" />
         </span>
-        <p className="text-[13px] font-medium text-body">{label}</p>
       </div>
-      <p className="display mt-4 text-[34px] leading-none tabular-nums">{value}</p>
+      <p className="display mt-5 text-[44px] leading-none tabular-nums">{value}</p>
       {note && <p className="mt-2 text-[13px] text-body">{note}</p>}
     </div>
   );
@@ -70,7 +72,7 @@ const stageStyle: Record<Stage, { bg: string; dot: string }> = {
 export function StageBadge({ stage }: { stage: Stage }) {
   const s = stageStyle[stage];
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[12px] font-medium ${s.bg}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-0.5 text-[12px] font-medium ${s.bg}`}>
       <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} aria-hidden="true" />
       {stage}
     </span>
@@ -102,12 +104,12 @@ export function StageTrack({ stage, labels = false }: { stage: Stage; labels?: b
 
 export function ActionLink({ href, children, variant = "outline" }: { href: string; children: ReactNode; variant?: "solid" | "outline" | "ghost" }) {
   const styles = {
-    solid: "rounded-xl bg-violet text-white shadow-[0_1px_2px_rgba(58,43,117,0.3)] hover:bg-violet-dark",
-    outline: "rounded-xl bg-white text-ink shadow-[0_0_0_1px_rgba(28,26,24,0.1)] hover:bg-cream",
-    ghost: "rounded-lg px-2! text-violet hover:bg-lavender",
+    solid: "rounded-lg bg-violet text-white hover:bg-violet-dark",
+    outline: "rounded-lg bg-white text-ink ring-1 ring-inset ring-ink/15 hover:bg-cream",
+    ghost: "rounded-md px-2! text-violet hover:bg-lavender",
   }[variant];
   return (
-    <Link href={href} className={`inline-flex min-h-9 items-center gap-2 px-3.5 text-[14px] font-medium transition-colors ${styles}`}>
+    <Link href={href} className={`inline-flex min-h-10 items-center gap-2 px-4 text-[14px] font-medium transition-colors ${styles}`}>
       {children}
     </Link>
   );
@@ -133,7 +135,7 @@ export function Initials({ name, className = "" }: { name: string; className?: s
     .slice(0, 2);
   const tone = avatarTones[[...name].reduce((n, c) => n + c.charCodeAt(0), 0) % avatarTones.length];
   return (
-    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[13px] font-semibold ${tone} ${className}`} aria-hidden="true">
+    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-[13px] font-semibold ${tone} ${className}`} aria-hidden="true">
       {i}
     </span>
   );

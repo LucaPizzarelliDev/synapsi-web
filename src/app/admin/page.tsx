@@ -2,8 +2,17 @@ import Link from "next/link";
 import { AreaStatusBadge, CompanyMark, DealBadge, ProductChips } from "@/components/admin/ui";
 import { icons } from "@/components/portal/icons";
 import { ActionLink, Card, CardLink, PageHeader, Stat } from "@/components/portal/ui";
-import { allAreas, auditLog, companies, dealStages } from "@/lib/admin";
+import { allAreas, auditLog, companies, dealStages, type DealStage } from "@/lib/admin";
 import { formatDate } from "@/lib/portal";
+
+// Ogni fase della trattativa ha il suo colore pieno, come le tessere del sito
+const stageTile: Record<DealStage, string> = {
+  "Primo contatto": "bg-cream-2",
+  "Proposta inviata": "bg-ps",
+  Trattativa: "bg-ob",
+  Vinta: "bg-ac",
+  Persa: "bg-ip",
+};
 
 export default function ConsolePage() {
   const open = companies.filter((c) => c.deal.stage !== "Vinta" && c.deal.stage !== "Persa");
@@ -38,9 +47,9 @@ export default function ConsolePage() {
           {dealStages.map((s) => {
             const n = companies.filter((c) => c.deal.stage === s).length;
             return (
-              <li key={s} className="rounded-2xl bg-cream p-4">
-                <DealBadge stage={s} />
-                <p className="display mt-3 text-[30px] leading-none">{n}</p>
+              <li key={s} className={`flex min-h-[120px] flex-col justify-between rounded-xl p-4 ${stageTile[s]}`}>
+                <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-ink/70">{s}</span>
+                <span className="display mt-4 text-[44px] leading-none tabular-nums">{n}</span>
               </li>
             );
           })}

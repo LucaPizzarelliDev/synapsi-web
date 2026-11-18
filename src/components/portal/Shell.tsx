@@ -35,7 +35,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
     <div className="flex flex-col gap-5">
       {groups.map((g, gi) => (
         <div key={gi}>
-          {g.label && <p className="px-3 pb-1.5 text-[12px] font-medium text-body/70">{g.label}</p>}
+          {g.label && <p className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-body/70">{g.label}</p>}
           <ul className="flex flex-col gap-0.5">
             {g.items.map((item) => {
               const active = item.href === "/portal" ? pathname === "/portal" : pathname.startsWith(item.href);
@@ -45,7 +45,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
                     href={item.href}
                     onClick={onNavigate}
                     aria-current={active ? "page" : undefined}
-                    className={`group flex min-h-9 items-center gap-2.5 rounded-xl px-3 text-[14px] transition-colors ${
+                    className={`group flex min-h-10 items-center gap-2.5 rounded-lg px-3 text-[14px] transition-colors ${
                       active ? "bg-white font-medium text-ink shadow-[0_1px_2px_rgba(28,26,24,0.06)]" : "text-body hover:bg-white/60 hover:text-ink"
                     }`}
                   >
@@ -88,8 +88,8 @@ export function PortalShell({ children }: { children: ReactNode }) {
         </div>
 
         {/* Spazio di lavoro: il cliente */}
-        <div className="flex items-center gap-3 rounded-2xl bg-white p-2.5 shadow-[0_1px_2px_rgba(28,26,24,0.06)]">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet text-[13px] font-semibold text-white" aria-hidden="true">
+        <div className="flex items-center gap-3 rounded-xl bg-white p-2.5 shadow-[0_1px_2px_rgba(28,26,24,0.06)]">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-night font-mono text-[12px] font-medium text-white" aria-hidden="true">
             {client.short}
           </span>
           <span className="min-w-0">
@@ -103,9 +103,9 @@ export function PortalShell({ children }: { children: ReactNode }) {
         </nav>
 
         {/* Il referente: una persona, non un servizio clienti */}
-        <div className="rounded-2xl bg-white p-4 shadow-[0_1px_2px_rgba(28,26,24,0.06)]">
+        <div className="rounded-xl bg-white p-4 shadow-[0_1px_2px_rgba(28,26,24,0.06)]">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ps text-[14px] font-semibold text-violet-dark" aria-hidden="true">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-ps text-[14px] font-semibold text-violet-dark" aria-hidden="true">
               AG
             </span>
             <span>
@@ -115,7 +115,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
           </div>
           <a
             href="mailto:info@synapsi-analytics.it"
-            className="mt-3 flex min-h-9 items-center justify-center rounded-xl bg-cream text-[13px] font-medium text-ink transition-colors hover:bg-lavender hover:text-violet-dark"
+            className="mt-3 flex min-h-10 items-center justify-center rounded-lg bg-cream text-[13px] font-medium text-ink transition-colors hover:bg-lavender hover:text-violet-dark"
           >
             Scrivi al referente
           </a>
@@ -124,12 +124,12 @@ export function PortalShell({ children }: { children: ReactNode }) {
 
       <div className="flex min-w-0 flex-col lg:py-2 lg:pr-2">
         {/* Pannello di lavoro */}
-        <div className="flex min-h-full flex-1 flex-col bg-snow lg:rounded-[20px] lg:shadow-[0_0_0_1px_rgba(28,26,24,0.05),0_2px_8px_-2px_rgba(28,26,24,0.06)] print:bg-white print:shadow-none">
+        <div className="flex min-h-full flex-1 flex-col bg-snow lg:rounded-2xl lg:shadow-[0_0_0_1px_rgba(28,26,24,0.05),0_2px_8px_-2px_rgba(28,26,24,0.06)] print:bg-white print:shadow-none">
           <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b border-line/70 bg-snow/90 px-4 backdrop-blur print:hidden sm:px-6 lg:top-2 lg:rounded-t-[20px] lg:px-8">
             <div className="flex min-w-0 items-center gap-3">
               <button
                 type="button"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-cream lg:hidden"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-cream lg:hidden"
                 aria-expanded={open}
                 aria-controls="portale-menu"
                 aria-label={open ? "Chiudi menu" : "Apri menu"}
@@ -141,18 +141,18 @@ export function PortalShell({ children }: { children: ReactNode }) {
                 <Logo href="/portal" />
               </span>
               <p className="hidden min-w-0 items-center gap-2 truncate text-[14px] lg:flex">
-                <span className="text-body">{client.short}</span>
+                <span className="font-mono text-[13px] text-body">{client.short}</span>
                 <span className="text-body/40" aria-hidden="true">/</span>
                 <span className="font-medium">{section ?? "Portale"}</span>
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <span className="hidden items-center gap-1.5 rounded-full bg-ob/70 px-2.5 py-1 text-[12px] font-medium text-ink sm:inline-flex">
+              <span className="hidden items-center gap-1.5 rounded-md bg-ob/70 px-2.5 py-1 text-[12px] font-medium text-ink sm:inline-flex">
                 <span className="h-1.5 w-1.5 rounded-full bg-ink/60" aria-hidden="true" />
                 Ambiente di esempio
               </span>
               <span className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet text-[12px] font-semibold text-white" aria-hidden="true">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet text-[12px] font-semibold text-white" aria-hidden="true">
                   {client.user.initials}
                 </span>
                 <span className="hidden text-[13px] leading-tight xl:block">
@@ -169,7 +169,7 @@ export function PortalShell({ children }: { children: ReactNode }) {
           {open && (
             <nav id="portale-menu" aria-label="Portale mobile" className="border-b border-line bg-cream-2/60 px-3 py-4 lg:hidden">
               <NavList onNavigate={() => setOpen(false)} />
-              <Link href="/portal/login" className="mt-3 flex min-h-9 items-center rounded-xl px-3 text-[14px] text-body hover:bg-white">
+              <Link href="/portal/login" className="mt-3 flex min-h-9 items-center rounded-lg px-3 text-[14px] text-body hover:bg-white">
                 Esci
               </Link>
             </nav>

@@ -88,7 +88,7 @@ export function CodeLegend({ lang = "it" }: { lang?: Locale }) {
       <Container>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {codes.map((c) => (
-            <li key={c.code} className={`flex items-start gap-3.5 rounded-[24px] p-5 ${codeBg[c.code]}`}>
+            <li key={c.code} className={`flex items-start gap-3.5 rounded-2xl p-5 ${codeBg[c.code]}`}>
               <span className="shrink-0 rounded-full bg-white px-2.5 py-1 font-mono text-[13px] font-medium leading-none">{c.code}</span>
               <p className="text-[15px] leading-normal text-ink/80">
                 <strong className="text-ink">{c.name}.</strong> {c.text}
@@ -330,7 +330,7 @@ export function MethodSteps({ lang = "it" }: { lang?: Locale }) {
       {methodSteps.map((s, i) => {
         const last = i === methodSteps.length - 1;
         return (
-          <li key={s.n} className={`flex flex-col gap-3 rounded-[24px] p-7 ${last ? "bg-ob" : "bg-white"}`}>
+          <li key={s.n} className={`flex flex-col gap-3 rounded-2xl p-7 ${last ? "bg-ob" : "bg-white"}`}>
             <div className="flex items-center justify-between gap-3">
               <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-violet text-[18px] text-white">{s.n}</span>
               <span className={`rounded-full px-3 py-1 text-[13px] font-medium ${last ? "bg-white/70 text-ink" : "bg-lavender text-violet-dark"}`}>
@@ -358,7 +358,7 @@ export function MethodSteps({ lang = "it" }: { lang?: Locale }) {
 export function NotWeDoList({ lang = "it" }: { lang?: Locale }) {
   const { notWeDo, notWeDoPrefix } = shared[lang];
   return (
-    <ul className="divide-y divide-line rounded-[24px] bg-white px-6 sm:px-8">
+    <ul className="divide-y divide-line rounded-2xl bg-white px-6 sm:px-8">
       {notWeDo.map((n) => (
         <li key={n.what} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-4.5">
           <s className="display text-[clamp(1.4rem,2.2vw,2rem)] leading-[1.2] decoration-violet/60 decoration-2">
@@ -453,7 +453,7 @@ export function EvidenceFlow({ lang = "it" }: { lang?: Locale }) {
 
 /* ---------- Hero: il flusso a step ---------- */
 
-const card = "rounded-[24px] bg-white p-5 shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_16px_40px_-24px_rgba(34,26,66,0.3)]";
+const card = "rounded-2xl bg-white p-5 shadow-[0_0_0_1px_rgba(28,26,24,0.06),0_16px_40px_-24px_rgba(34,26,66,0.3)]";
 
 function CardHead({ children, aside }: { children: ReactNode; aside: ReactNode }) {
   return (

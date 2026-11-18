@@ -26,7 +26,7 @@ export function ReportTable() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Cerca per nome, ruolo o codice"
-            className="h-10 w-full rounded-xl bg-cream px-4 text-[14px] ring-1 ring-inset ring-ink/10 placeholder:text-body/70"
+            className="h-10 w-full rounded-lg bg-cream px-4 text-[14px] ring-1 ring-inset ring-ink/10 placeholder:text-body/70"
           />
         </label>
         <label className="flex items-center gap-2 text-[14px] text-body">
@@ -67,14 +67,14 @@ export function ReportTable() {
                   </Link>
                 </td>
                 <td className="px-3 py-3.5">
-                  <span className="inline-flex rounded-full bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{r.product}</span>
+                  <span className="inline-flex rounded-md bg-lavender px-2.5 py-0.5 text-[12px] font-semibold text-violet-dark">{r.product}</span>
                   <span className="mt-1 block text-[13px] text-body">{r.kind}</span>
                 </td>
                 <td className="px-3 py-3.5 text-body">{formatDate(r.date)}</td>
                 <td className="px-3 py-3.5 text-body">{psychologists[r.signedBy].short}</td>
                 <td className="px-5 py-3.5">
                   <span className="flex justify-end gap-1">
-                    <Link href={`/portal/reports/${r.id}`} className="inline-flex min-h-9 items-center rounded-xl px-3 text-[14px] font-medium hover:bg-cream-2">
+                    <Link href={`/portal/reports/${r.id}`} className="inline-flex min-h-9 items-center rounded-lg px-3 text-[14px] font-medium hover:bg-cream-2">
                       Apri
                     </Link>
                     <DownloadLink id={r.id} label="PDF" variant="ghost" />
